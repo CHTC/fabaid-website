@@ -10,7 +10,7 @@ export default function SiteFooter() {
       <Container maxWidth='lg'>
         <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', mb: 2 }}>
           <Link href={NSF_AWARD_URL} target='_blank' rel='noopener noreferrer' aria-label='NSF award details'>
-            <ExportedImage src='/logos/nsf.png' alt='National Science Foundation logo' width={120} height={120} />
+            <ExportedImage src='/images/logos/nsf.png' alt='National Science Foundation logo' width={120} height={120} />
           </Link>
           <Typography variant='body2' color='text.secondary'>
             Supported by the National Science Foundation.

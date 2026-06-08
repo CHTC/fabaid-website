@@ -3,7 +3,7 @@
 import { Box, Button, Container, Grid, Paper, Typography } from '@mui/material';
 import React from 'react';
 
-const HERO_TEXTURE = '/design/fabric/Fabric-22.png';
+const HERO_TEXTURE = '/design/fabric/Fabric-05.png';
 
 interface FlowCard {
   step: string;
@@ -58,7 +58,7 @@ export default function Hero() {
           backgroundImage: `url(${HERO_TEXTURE})`,
           backgroundRepeat: 'repeat',
           backgroundSize: '220px 220px',
-          opacity: 0.3,
+          opacity: 0.2,
           zIndex: 0,
         },
       }}

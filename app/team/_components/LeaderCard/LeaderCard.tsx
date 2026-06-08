@@ -2,20 +2,7 @@ import ExportedImage from 'next-image-export-optimizer';
 import { Box, Typography, Paper } from '@mui/material';
 import React from 'react';
 import { Staff } from '@/utils/staff';
-
-const FABRIC_TEXTURES = [
-  '/design/fabric/Fabric-08.png',
-  '/design/fabric/Fabric-09.png',
-  '/design/fabric/Fabric-20.png',
-  '/design/fabric/Fabric-22.png',
-  '/design/fabric/Fabric-23.png',
-  '/design/fabric/Fabric-25.png',
-];
-
-function getFabricTexture(seed: string) {
-  const hash = seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  return FABRIC_TEXTURES[hash % FABRIC_TEXTURES.length];
-}
+import getFabricTexture from "@/utils/getFabricTexture";
 
 type LeaderCardProps = Staff & {
   textAlign?: 'left' | 'right';
@@ -23,13 +10,13 @@ type LeaderCardProps = Staff & {
 };
 
 export function LeaderCard({
-  name,
-  title,
-  image,
-  institution,
-  textAlign = 'left',
-  imageSide = 'left',
-}: LeaderCardProps) {
+                             name,
+                             title,
+                             image,
+                             institution,
+                             textAlign = 'left',
+                             imageSide = 'left',
+                           }: LeaderCardProps) {
   const fabricTexture = getFabricTexture(name);
   const isRightAligned = textAlign === 'right';
   const isImageOnRight = imageSide === 'right';
@@ -114,62 +101,4 @@ export function LeaderCard({
   );
 }
 
-export function StaffCard({ name, title, image, institution }: Staff) {
-  const fabricTexture = getFabricTexture(name);
-
-  return (
-    <Box
-      sx={{
-        borderRadius: '1rem',
-        padding: '1rem',
-        bgcolor: 'background.paper',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Box
-        sx={{
-          p: '6px',
-          backgroundImage: `url(${fabricTexture})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          borderRadius: '1rem',
-        }}>
-        <Paper
-          sx={{
-            p: 1,
-            borderRadius: '0.8rem',
-            bgcolor: 'background.paper',
-          }}
-        >
-          <ExportedImage
-            src={image}
-            alt={name}
-            height={150}
-            width={150}
-            style={{
-              borderRadius: '0.8rem',
-              objectFit: 'cover',
-              display: 'block'
-            }}
-          />
-        </Paper>
-      </Box>
-
-      <Box sx={{ pl: 1, display: 'flex', flexDirection: 'column' }}>
-        <Box sx={{ my: 'auto', ml: 0, mr: 'auto', textAlign: 'left' }}>
-          <Typography variant={'h5'} color={'primary.dark'}>
-            {name}
-          </Typography>
-          <Typography variant={'subtitle1'} color={'text.secondary'}>
-            {title}
-          </Typography>
-          <Typography variant={'subtitle1'} lineHeight={1.4} color={'text.secondary'}>
-            {institution}
-          </Typography>
-        </Box>
-      </Box>
-    </Box>
-  );
-}
+export default LeaderCard;

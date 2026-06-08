@@ -1,5 +1,5 @@
 import { Box, Container, Grid, Typography, Divider } from '@mui/material';
-import { LeaderCard, StaffCard } from './cards';
+import { LeaderCard, StaffCard } from "./_components"
 import React from 'react';
 import { getStaff } from '@/utils/staff';
 import PageHeader from '@/components/PageHeader';

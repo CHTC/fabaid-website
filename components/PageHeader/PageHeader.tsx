@@ -24,7 +24,7 @@ export default function PageHeader({ title, texture = DEFAULT_TEXTURE }: PageHea
           backgroundImage: `url(${texture})`,
           backgroundRepeat: 'repeat',
           backgroundSize: '180px 180px',
-          opacity: 0.35,
+          opacity: 0.2,
         },
       }}
     >

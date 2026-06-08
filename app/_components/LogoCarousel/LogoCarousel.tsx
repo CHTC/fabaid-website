@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Link } from '@mui/material';
+import { Box, Link, Typography } from '@mui/material';
 import ExportedImage from 'next-image-export-optimizer';
 import React from 'react';
 
@@ -8,16 +8,17 @@ interface Logo {
   src: string;
   alt: string;
   href: string;
+  label: string;
 }
 
 const LOGOS: Logo[] = [
-  { src: '/logos/osg.svg', alt: 'OSG', href: 'https://osg-htc.org' },
-  { src: '/logos/pelican.png', alt: 'Pelican', href: 'https://pelicanplatform.org' },
-  { src: '/logos/nrp.webp', alt: 'National Research Platform', href: 'https://nationalresearchplatform.org' },
-  { src: '/logos/ndp.png', alt: 'National Data Platform', href: 'https://nationaldataplatform.org' },
-  { src: '/logos/nairr.svg', alt: 'NAIRR', href: 'https://nairrpilot.org' },
-  { src: '/logos/htcondor.png', alt: 'HTCondor', href: 'https://htcondor.org' },
-  { src: '/logos/chtc.svg', alt: 'CHTC', href: 'https://chtc.cs.wisc.edu' },
+  { src: '/images/logos/chtc.svg', alt: 'CHTC', href: 'https://chtc.cs.wisc.edu', label: 'Leads FabAID' },
+  { src: '/images/logos/htcondor.png', alt: 'HTCondor', href: 'https://htcondor.org', label: 'Funded Via FabAID' },
+  { src: '/images/logos/osg.svg', alt: 'OSG', href: 'https://osg-htc.org', label: 'Funded Via FabAID' },
+  { src: '/images/logos/pelican.png', alt: 'Pelican', href: 'https://pelicanplatform.org', label: 'Funded Via FabAID' },
+  { src: '/images/logos/nrp.webp', alt: 'National Research Platform', href: 'https://nationalresearchplatform.org', label: 'Collaborates with FabAID' },
+  { src: '/images/logos/ndp.png', alt: 'National Data Platform', href: 'https://nationaldataplatform.org', label: 'Collaborates with FabAID' },
+  { src: '/images/logos/nairr.svg', alt: 'NAIRR', href: 'https://nairrpilot.org', label: 'Collaborates with FabAID' },
 ];
 
 // Duplicate the list so the marquee can loop seamlessly.
@@ -45,7 +46,7 @@ export default function LogoCarousel() {
         sx={{
           display: 'flex',
           width: 'max-content',
-          alignItems: 'center',
+          alignItems: 'flex-end',
           gap: { xs: 6, md: 10 },
           animation: 'logo-marquee 30s linear infinite',
           '&:hover': {
@@ -63,24 +64,42 @@ export default function LogoCarousel() {
             href={logo.href}
             target='_blank'
             rel='noopener noreferrer'
-            aria-label={logo.alt}
+            aria-label={`${logo.alt} — ${logo.label}`}
+            underline='none'
             sx={{
               flex: '0 0 auto',
-              position: 'relative',
-              display: 'block',
-              height: { xs: 48, md: 64 },
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 1,
               width: { xs: 120, md: 160 },
               opacity: 0.85,
               transition: 'opacity 0.2s ease, transform 0.2s ease',
               '&:hover': { opacity: 1, transform: 'scale(1.05)' },
             }}
           >
-            <ExportedImage
-              src={logo.src}
-              alt={logo.alt}
-              fill
-              style={{ objectFit: 'contain' }}
-            />
+            <Box
+              sx={{
+                position: 'relative',
+                height: { xs: 48, md: 64 },
+                width: '100%',
+              }}
+            >
+              <ExportedImage
+                src={logo.src}
+                alt={logo.alt}
+                fill
+                style={{ objectFit: 'contain' }}
+              />
+            </Box>
+            <Typography
+              variant='subtitle2'
+              color='text.secondary'
+              textAlign='center'
+              sx={{ lineHeight: 1.3 }}
+            >
+              {logo.label}
+            </Typography>
           </Link>
         ))}
       </Box>
