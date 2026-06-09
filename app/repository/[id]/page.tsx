@@ -18,12 +18,13 @@ import { ArrowBack, Launch } from '@mui/icons-material';
 import PageHeader from '@/components/PageHeader';
 import getFabricTexture from '@/utils/getFabricTexture';
 import {
+  filterValidNamespaces,
   formatBytes,
   formatCount,
   getDataRepository,
   getDataRepositoryIds,
 } from '@/utils/dataRepositories';
-import { Markdown } from '../_components';
+import { Markdown, RepositoryFileBrowser } from '../_components';
 
 type PageParams = { id: string };
 type PageProps = { params: Promise<PageParams> };
@@ -84,6 +85,8 @@ export default async function Page({ params }: PageProps) {
   const repositoryUrl = repository.repositoryUrl?.url
     ? repository.repositoryUrl
     : null;
+
+  const browsableNamespaces = filterValidNamespaces(repository.namespace ?? []);
 
   return (
     <Box pt={6} pb={8}>
@@ -215,6 +218,20 @@ export default async function Page({ params }: PageProps) {
             </Paper>
           </Grid>
         </Grid>
+
+        {repository.dataVisibility === 'public' &&
+          browsableNamespaces.length > 0 && (
+            <Box sx={{ mt: 8 }}>
+              <Typography variant='h5' component='h2' gutterBottom>
+                Browse Files
+              </Typography>
+              <Typography variant='body2' color='text.secondary' sx={{ mb: 2 }}>
+                Explore the objects in this repository&apos;s namespaces using
+                the Pelican web client.
+              </Typography>
+              <RepositoryFileBrowser namespaces={browsableNamespaces} />
+            </Box>
+          )}
       </Container>
     </Box>
   );

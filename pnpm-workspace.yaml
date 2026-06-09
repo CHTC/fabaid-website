@@ -2,3 +2,11 @@ allowBuilds:
   esbuild: true
   sharp: true
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - '@pelicanplatform/components@1.2.0'
+  - '@pelicanplatform/hooks@1.2.0'
+  - '@pelicanplatform/web-client@1.2.0'
+  - '@pelicanplatform/components@1.3.0'
+  - '@pelicanplatform/hooks@1.3.0'
+  - '@pelicanplatform/components@1.5.0'
+  - '@pelicanplatform/hooks@1.4.0'
