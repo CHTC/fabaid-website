@@ -1,0 +1,25 @@
+description: |
+  The KoaStore repository is a high performance and scalable parallel file system
+  storage solution that can be used by University of Hawai'i faculty and staff.  KoaStore
+  was [funded](https://www.hawaii.edu/news/2022/10/21/500k-boosts-data-intensive-research/)
+  through the [NSF Campus Cyberinfrastructure]() program through [award #2232862](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2232862).
+
+  KoaStore users provide datasets such as [SPIN4D](https://ifauh.github.io/SPIN4D/) accessible
+  via the OSDF.
+organization: University of Hawai'i # Name of the organization
+dataVisibility: public # public, or private
+size: null # In bytes so I can parse how I want
+fieldOfScience: Multi/Interdisciplinary Studies # Top level Field of Science pulled from here https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55
+numberOfDatasets: null # Number of datasets in the namespace
+rank: 0 # Rank of the namespace, 0 will have the lowest priority
+inProgress: false # Whether or not the namespace is in progress
+display: false # Whether or not to display this namespace
+name: University of Hawai'i KoaStore # Human readable name of the namespace
+namespace: 
+  - "/uhkoa"
+thirtyDayReads: 0
+oneYearReads: 1669909818762
+publicObject: 
+organizationUrl: https://www.hawaii.edu/
+repositoryUrl:
+  url: https://datascience.hawaii.edu/koa-research-storage-service/

@@ -1,0 +1,32 @@
+description: |
+  The Center for High Throughput Computing (CHTC), established in 2006, aims to
+  bring the power of High Throughput Computing to all fields of research, and to
+  allow the future of HTC to be shaped by insight from all fields.
+
+  Beyond technologies and innovation and HTC through projects like
+  [HTCondor](https://htcondor.org), the CHTC operates general purpose clusters for
+  the UW-Madison campus.  CHTC allows researchers to stage their research data
+  to an object store connected to the OSDF and then process and analyze the data using
+  the OSDF with on-campus resources or the [OSPool](https://osg-htc.org/ospool).
+
+  This data is organized as "working datasets" representing running workloads, not
+  permanent scientific outputs.
+
+organization: University of Wisconsin - Madison
+dataVisibility: private
+size: 445115415442995
+objectCount: null
+fieldOfScience: Multi/Interdisciplinary Studies
+numberOfDatasets: null
+rank: 0
+inProgress: false
+display: true
+name: CHTC Researcher Data
+namespace: 
+  - "/chtc"
+  - "/chtc/specialprojects"
+thirtyDayReads: 118701425179211
+oneYearReads: 5341756039548910
+organizationUrl: https://wisc.edu
+repositoryUrl:
+  url: https://chtc.cs.wisc.edu/

@@ -1,0 +1,17 @@
+description: |
+ General namespace for Purdue University OSStore contribution.
+organization: Purdue University # Name of the organization
+dataVisibility: public # public, or private
+size: null # In bytes so I can parse how I want
+fieldOfScience: Multi/Interdisciplinary Studies # Top level Field of Science pulled from here https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55
+numberOfDatasets: null # Number of datasets in the namespace
+rank: 0 # Rank of the namespace, 0 will have the lowest priority
+inProgress: false # Whether or not the namespace is in progress
+display: false # Whether or not to display this namespace
+name: Purdue University OSStore # Human readable name of the namespace
+namespace: 
+  - "/purdue"
+thirtyDayReads: 0
+oneYearReads: 0
+organizationUrl: https://purdue.edu/
+repositoryUrl: null

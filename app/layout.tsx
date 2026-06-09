@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import {Box} from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import { PlayArrow, PeopleAlt } from '@mui/icons-material';
+import { PlayArrow, PeopleAlt, Storage as StorageIcon } from '@mui/icons-material';
 
 import UWBanner from "@chtc/web-components/UW/Banner"
 import theme, {fonts} from "@chtc/web-components/themes/chtc"
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 };
 
 const pages = [
+  { label: 'Repositories', path: '/repository/', icon: <StorageIcon /> },
   { label: 'Team', path: '/team/', icon: <PeopleAlt /> },
 ]
 

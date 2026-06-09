@@ -1,0 +1,28 @@
+description: |
+  
+  [GlueX](http://www.gluex.org) is an experiment at the Thomas Jefferson National Accelerator
+  Facility (JLab) in Newport News, Virginia, that studies how particles called mesons behave
+  to learn more about the strong force—the force that holds atomic nuclei together. The dataset
+  from GlueX comes from millions of collisions between high-energy photons and protons.  GlueX
+  uses the OSDF to distribute inputs to its data simulations and is exploring using OSDF for
+  reprocessing.
+
+  GlueX is supported by the US Department of Energy.
+organization: Jefferson National Laboratory
+dataVisibility: public
+size: null
+fieldOfScience: Physical Sciences
+numberOfDatasets: null
+rank: 0
+inProgress: false
+display: true
+name: GlueX
+namespace:
+  - /gluex
+  - /Gluex
+thirtyDayReads: 0
+oneYearReads: 215894157976
+publicObject: null # Optional namespace path to a public object
+organizationUrl: https://www.jlab.org
+repositoryUrl: 
+  url: http://www.gluex.org

@@ -1,0 +1,21 @@
+description: |
+  The Knight Lab uses and develops state-of-the-art computational and experimental
+  techniques to ask fundamental questions about the evolution of the composition of biomolecules,
+  genomes, and communities in different ecosystems, including the complex microbial ecosystems of the human body. 
+organization: University of California, San Diego
+dataVisibility: public
+size: null # In bytes so I can parse how I want
+objectCount: null
+fieldOfScience: Biological and Biomedical Sciences # Top level Field of Science pulled from here https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55
+numberOfDatasets: null # Number of datasets in the namespace
+rank: 0 # Rank of the namespace, 0 will have the lowest priority
+inProgress: false # Whether or not the namespace is in progress
+display: true # Whether or not to display this namespace
+name: UCSD Knight Lab # Human readable name of the namespace
+namespace: 
+  - "/knightlab"
+thirtyDayReads: 0
+oneYearReads: 258218216565
+publicObject: # Optional namespace path to a public object
+organizationUrl: https://knightlab.ucsd.edu/
+repositoryUrl: null

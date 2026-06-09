@@ -1,0 +1,25 @@
+description: |
+  Curated datasets used by members of the [LIGO Scientific Collaboration](www.ligo.org), the
+  [Virgo Collaboration](https://www.virgo-gw.eu/), and the [KAGRA Collaboration](https://gwcenter.icrr.u-tokyo.ac.jp/en/organization)
+  in the combined analysis of data collected from their detectors. These data consist of gravitational-wave
+  data collected at any of the four interferometers but with simulated signals, as well as some other datasets,
+  used for data analysis purposes in detecting black hole collisions and other cosmic phenomena as
+  part of the NSF's multi-messenger astronomy initiatives.
+
+  These data are not yet released to the public.
+organization: California Institute of Technology
+dataVisibility: private
+size: 100695746686856
+objectCount: 1033379
+fieldOfScience: Astronomy and Astrophysics
+numberOfDatasets: 5 # Number of datasets in the namespace
+rank: 0 # Rank of the namespace, 0 will have the lowest priority
+inProgress: false # Whether or not the namespace is in progress
+display: true # Whether or not to display this namespace
+name: IGWN Shared Gravitational Wave Data # Human readable name of the namespace
+namespace: 
+  - "/igwn/shared"
+thirtyDayReads: 4436999054511
+oneYearReads: 2668375776814160
+organizationUrl: https://www.ligo.caltech.edu/
+repositoryUrl: null

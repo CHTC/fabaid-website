@@ -1,0 +1,36 @@
+description: |
+  The [LLC4320 ocean dataset](https://ecco-group.org/world-of-ecco.htm) is
+  the product of a 14-month simulation of ocean circulation and dynamics
+  using the Massachusetts Institute of Technology's General Circulation
+  Model on a lat-lon-cap grid. Comprising extensive scalar data such as
+  temperature, salinity, heat flux, radiation, and velocity, the dataset
+  exceeds 4 PB and can potentially improve our understanding of global ocean
+  circulation and its role in Earth's climate system.
+
+  In order to make this dataset more accessible and easier to visualize, the
+  [National Science Data Fabric](https://nationalsciencedatafabric.org/) has
+  processed the raw data into the [ViSUS](https://visus.org/) data format
+  using their [OpenViSUS](https://github.com/sci-visus/OpenVisus) toolsuite.
+
+  It will be used in the
+  [2026 IEEE SciVis Contest](https://sciviscontest2026.github.io/) to
+  demonstrate cutting-edge technologies for working with petascale climate
+  data provided by NASA.
+organization: University of Utah
+organizationUrl: https://www.utah.edu/
+repositoryUrl:
+  url: https://data.nas.nasa.gov/ecco/
+fieldOfScience: Atmospheric Sciences and Meteorology  # 40.0402
+numberOfDatasets: 1
+name: OpenViSUS Conversion of NASA's ECCO Project's 1/48° MITgcm Simulation
+namespace:
+  - "/nasa/nsdf/climate1"
+  - "/nasa/nsdf/climate2"
+dataVisibility: public
+publicObject: /nasa/nsdf/climate1/llc4320/idx/salt/salt_llc4320_x_y_depth.idx
+size: 957279078711296  # bytes
+display: true
+rank: 0  # zero is lowest priority
+inProgress: false
+thirtyDayReads: 45098988340
+oneYearReads: 864388563354

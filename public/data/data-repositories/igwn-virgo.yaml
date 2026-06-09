@@ -1,0 +1,23 @@
+description: |
+  Gravitational wave data collected by the [VIRGO interferometer](https://www.virgo-gw.eu/),
+  a scientific device for detecting gravitational waves near Pisa, Italy.  VIRGO
+  collaborates closely with the LIGO detectors in the US to provide more accurate
+  detection of gravitational waves
+
+  This is the data not yet released to the public.
+organization: European Gravitational Observatory
+dataVisibility: private
+size: 16106127360000
+fieldOfScience: Astronomy and Astrophysics
+numberOfDatasets: 10
+rank: 0 # Rank of the namespace, 0 will have the lowest priority
+inProgress: false
+display: true # Whether or not to display this namespace
+name: VIRGO Gravitational Wave Data
+namespace: 
+  - "/igwn/virgo"
+thirtyDayReads: 269563925490601
+oneYearReads: 3046944641469200
+organizationUrl: https://www.ego-gw.it/
+repositoryUrl:
+  url: https://www.virgo-gw.eu

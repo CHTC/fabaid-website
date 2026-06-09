@@ -1,0 +1,26 @@
+description: |
+  Gravitational wave data collected by the [LIGO interferometer](https://www.ligo.caltech.edu/page/ligos-ifo)
+  detectors in Hanford, Washington and Livingston, Louisiana and hosted by 
+  [LIGO Laboratory](https://www.ligo.caltech.edu/) at Caltech.  Gravitational wave data is used to detect
+  black hole collisions and other cosmic phenomena and is one piece of the NSF's multi-messenger astronomy
+  initiatives.
+
+  This is the data not yet released to the public.
+organization: California Institute of Technology
+dataVisibility: private
+size: 138805574893272
+objectCount: 245785
+fieldOfScience: Astronomy and Astrophysics
+numberOfDatasets: 12 # Number of datasets in the namespace
+rank: 0 # Rank of the namespace, 0 will have the lowest priority
+inProgress: false # Whether or not the namespace is in progress
+display: true # Whether or not to display this namespace
+name: LIGO Gravitational Wave Data
+namespace: 
+  - "/igwn/ligo"
+  - "/user/ligo"
+thirtyDayReads: 3894337423325970
+oneYearReads: 22558599596480200
+organizationUrl: https://www.ligo.caltech.edu/
+repositoryUrl:
+  url: https://www.ligo.caltech.edu

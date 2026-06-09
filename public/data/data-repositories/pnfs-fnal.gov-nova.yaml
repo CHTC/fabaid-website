@@ -1,0 +1,23 @@
+description: |
+  The NOvA (NuMI Off-axis ve Appearance) experiment is shedding light on one of nature's most elusive particles: neutrinos.
+  Since the late 1990s, physicists have known that neutrinos exhibit a quantum mechanical behavior called oscillations. But
+  this behavior is not predicted by the Standard Model of particle physics. NOvA is working to better understand these strange
+  particles through precision measurements of their oscillation properties.
+
+  NOvA uses the OSDF to deliver common data inputs for large-scale simulation jobs distributed across the US.
+organization: Fermi National Accelerator Laboratory
+dataVisibility: public # public, or private
+size: 10800000000000 # In bytes so I can parse how I want
+objectCount: 535751
+fieldOfScience: Physical Sciences # Top level Field of Science pulled from here https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55
+numberOfDatasets: null # Number of datasets in the namespace
+rank: 1 # Rank of the namespace, 0 will have the lowest priority
+inProgress: false # Whether or not the namespace is in progress
+display: true # Whether or not to display this namespace
+name: NOVA
+namespace: 
+  - "/pnfs/fnal.gov/usr/nova"
+publicObject: /pnfs/fnal.gov/usr/nova/persistent/stash/flux/g4numi/v6r1b/me000z200i/g4numiv6_minervame_me000z200i_0_0005.root # Optional namespace path to a public object
+organizationUrl: https://fnal.gov/
+repositoryUrl:
+  url: https://novaexperiment.fnal.gov/

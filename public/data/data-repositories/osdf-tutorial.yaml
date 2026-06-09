@@ -1,0 +1,22 @@
+description: |
+    Datasets for use in OSDF usage tutorials by [Pelican Platform](https://pelicanplatform.org) facilitation team.
+
+    This repository supports the education and workforce development mission of the
+    Pelican Project.
+organization: University of Wisconsin - Madison
+dataVisibility: private # public, or private
+size: 2416 # In bytes so I can parse how I want
+fieldOfScience: Computer and Information Sciences
+numberOfDatasets: null # Number of datasets in the namespace
+rank: 0 # Rank of the namespace, 0 will have the lowest priority
+inProgress: false # Whether or not the namespace is in progress
+display: true # Whether or not to display this namespace
+name: OSDF Tutorial Data
+namespace: 
+  - "/osdf-tutorial"
+thirtyDayReads: 0
+oneYearReads: 62261
+organizationUrl: https://wisc.edu/
+repositoryUrl:
+  # TODO: Update URL with the appropriate Pelican notebook.
+  url: https://github.com/osg-htc/tutorial-osdf-noaa/blob/main/01-get-and-share-objects.ipynb

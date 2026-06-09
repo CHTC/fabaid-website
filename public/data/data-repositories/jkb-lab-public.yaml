@@ -1,0 +1,24 @@
+description: |
+  Jessica Kendall-Bar leads a research group that integrates engineering, data science, ecology, and
+  visual storytelling/public communication to explore the behavior and physiology of marine life.
+
+  Her visual data work has appeared in various media platforms—from UC San Diego news to national outlets
+  like The New York Times and The Atlantic—and has contributed to global policy efforts in areas such as
+  marine mammal protection and coral reef recovery.
+organization: University of California, San Diego
+dataVisibility: public
+size: # unknown -- none currently available
+bytesXferd: # none
+url: https://www.jessiekb.com/
+fieldOfScience: MULTI/INTERDISCIPLINARY STUDIES
+numberOfDatasets: # unknown -- none currently available
+rank: 0 # Rank of the namespace, 0 will have the lowest priority
+inProgress: true # Whether or not the namespace is in progress
+display: false
+name: Jessica Kendall-Bar Lab
+namespace: 
+  - "/jkb-lab-public"
+thirtyDayReads: 0
+oneYearReads: 130362
+publicObject: # Optional namespace path to a public object
+organizationUrl: https://www.jessiekb.com/

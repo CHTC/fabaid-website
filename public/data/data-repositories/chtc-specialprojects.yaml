@@ -1,0 +1,21 @@
+description: |
+  Staging data for CHTC collaborations with University of
+  Wisconsin-Madison research groups. Currently serving data
+  specifically for the Joao Dorea group.
+organization: University of Wisconsin-Madison # Name of the organization
+dataVisibility: private # public, or private
+size: 78000000000000 # In bytes so I can parse how I want
+objectCount: null
+fieldOfScience: Agriculture, Agriculture Operations, and Related Sciences # Top level Field of Science pulled from here https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55
+numberOfDatasets: null # Number of datasets in the namespace
+rank: 0 # Rank of the namespace, 0 will have the lowest priority
+inProgress: false # Whether or not the namespace is in progress
+display: false # Whether or not to display this namespace
+name: CHTC Staging for Campus Collaborations # Human readable name of the namespace
+namespace: 
+  - "/chtc/specialprojects"
+thirtyDayReads: 5286894039594
+oneYearReads: 5339965187224643
+organizationUrl: https://dorealab.cals.wisc.edu/
+repositoryUrl:
+  url: null

@@ -1,0 +1,22 @@
+description: |
+  This is a test namespace utilized by staff of the [LIGO Laboratory](https://www.ligo.caltech.edu/) at
+  Caltech to test new versions of [Pelican](https://pelicanplatform.org/) software and configuration, to ensure that upcoming changes
+  do not disrupt ongoing data analysis on any of the production origins.
+
+  This data is private.
+organization: California Institute of Technology
+dataVisibility: private
+size: 15322207341
+objectCount: 1066
+fieldOfScience: Astronomy and Astrophysics
+numberOfDatasets: 2
+rank: 0 # Rank of the namespace, 0 will have the lowest priority
+inProgress: false # Whether or not the namespace is in progress
+display: false # Whether or not to display this namespace
+name: IGWN Read Test # Human readable name of the namespace
+namespace: 
+  - "/igwn/test"
+thirtyDayReads: 0
+oneYearReads: 2101389
+organizationUrl: https://www.ligo.caltech.edu/
+repositoryUrl: null

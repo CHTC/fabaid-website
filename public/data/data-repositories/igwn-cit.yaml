@@ -1,0 +1,23 @@
+description: |
+  User-managed data by members of the [LIGO Scientific Collaboration](www.ligo.org), the
+  [Virgo Collaboration](https://www.virgo-gw.eu/), and the [KAGRA Collaboration](https://gwcenter.icrr.u-tokyo.ac.jp/en/organization).
+  These data are created and used within individual users' workflows as they analyze gravitational-wave data in order
+  to detect black hole collisions and other cosmic phenomena. This origin is hosted at Caltech.
+
+  This data is not public; it is in support of in-progress computational workflows.
+organization: California Institute of Technology
+dataVisibility: private
+size: 31537610933565
+objectCount: 469323
+fieldOfScience: Astronomy and Astrophysics
+numberOfDatasets: 1581 # This is how many users currently have directories. Should do the same as whatever you decide for ospool-apN
+rank: 0 # Rank of the namespace, 0 will have the lowest priority
+inProgress: false # Whether or not the namespace is in progress
+display: true # Whether or not to display this namespace
+name: Caltech Gravitational Wave Data # Human readable name of the namespace
+namespace: 
+  - "/igwn/cit"
+thirtyDayReads: 769728653555870
+oneYearReads: 17688932216985000
+organizationUrl: https://www.ligo.caltech.edu/
+repositoryUrl: null

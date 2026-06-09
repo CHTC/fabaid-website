@@ -1,0 +1,23 @@
+description: |
+  This is a test repository utilized by staff of the [LIGO Laboratory](https://www.ligo.caltech.edu/) at
+  Caltech to test new versions ofthe [Pelican](https://pelicanplatform.org/) software and configuration, to ensure that upcoming changes
+  do not disrupt ongoing data analysis on any of the production origins. This test origin specifically
+  tests the software and configuration of user-managed data analogous to that served in /igwn/cit.
+
+  This data is private.
+organization: California Institute of Technology
+dataVisibility: private
+size: 443967241
+objectCount: 47
+fieldOfScience: Astronomy and Astrophysics
+numberOfDatasets: 2
+rank: 0 # Rank of the namespace, 0 will have the lowest priority
+inProgress: false # Whether or not the namespace is in progress
+display: false # Whether or not to display this namespace
+name: IGWN Write Test # Human readable name of the namespace
+namespace: 
+  - "/igwn/test-write"
+thirtyDayReads: 0
+oneYearReads: 468
+organizationUrl: https://www.ligo.caltech.edu/
+repositoryUrl: null

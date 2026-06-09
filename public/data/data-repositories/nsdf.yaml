@@ -1,0 +1,19 @@
+description: |
+
+organization: Morgridge Institute for Research
+dataVisibility: public
+size:  # bytes
+bytesXferd:  # bytes
+url: https://morgridge.org/research/research-computing/
+fieldOfScience:  # top-level entry from https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55
+numberOfDatasets:
+rank: 0  # zero is lowest priority
+inProgress: false
+display: false
+name:
+namespace:
+  - "/nsdf"
+thirtyDayReads: 5692199277
+oneYearReads: 51536059619
+publicObject: # Optional namespace path to a public object
+organizationUrl: https://morgridge.org/research/research-computing/

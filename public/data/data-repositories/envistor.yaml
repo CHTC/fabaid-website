@@ -1,0 +1,32 @@
+description: |
+  The South Florida region is home to nearly 10 million people, and the population is growing. The region faces several challenges,
+  such as rising sea levels and flooding, harmful algae blooms, water contamination, and wildlife habit loss, which affects the economy
+  and the welfare of its population. Florida International University (FIU) runs the EnviStor project, which is a centrally managed,
+  petabyte-scale storage system that is also a clearing house for supporting interdisciplinary research and modeling involving both built
+  and natural environments in South Florida. EnviStor provides opportunities for students
+  and faculty to enhance their knowledge of database management, focusing on interoperability.
+
+  The datasets kept in EnviStor can be accessed via the OSDF; work is ongoing to provide new computing workflows and AI-based dataset
+  discovery that will help users utilize the data.
+
+  The EnviStor activity and underlying storage is funded through the [NSF Campus Cyberinfrastructure program](https://www.nsf.gov/funding/opportunities/cc-campus-cyberinfrastructure) under
+  [Award # 2322308](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2322308).
+organization: Florida International University
+dataVisibility: public
+size: null # In bytes so I can parse how I want
+objectCount: null
+fieldOfScience: Natural Resources and Conservation
+numberOfDatasets: null # Number of datasets in the namespace
+rank: 0 # Rank of the namespace, 0 will have the lowest priority
+inProgress: true # Whether or not the namespace is in progress
+display: true # Whether or not to display this namespace
+name: EnviStor
+namespace: 
+  - "/envistor"
+thirtyDayReads: 36
+oneYearReads: 95684864
+# BrianB commented this out until we have a non-test URL from EnviStor.
+# publicObject: /envistor/test2
+organizationUrl: https://www.fiu.edu/
+repositoryUrl:
+  url: https://www.cis.fiu.edu/kfscis-professor-awarded-500000-nsf-grant-for-environment/
