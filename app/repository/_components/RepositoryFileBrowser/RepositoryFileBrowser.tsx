@@ -64,7 +64,7 @@ export default function RepositoryFileBrowser({
       )}
 
       {mounted ? (
-        <AuthenticatedClient key={namespace?.prefix} enableAuth />
+        <AuthenticatedClient key={namespace?.prefix} />
       ) : (
         <Skeleton variant='rounded' height={420} />
       )}
