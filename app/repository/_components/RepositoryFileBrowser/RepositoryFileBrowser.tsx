@@ -5,6 +5,9 @@ import {
   AuthenticatedClient,
   usePelicanClient,
 } from '@pelicanplatform/components';
+import {
+  registerPelicanSw
+} from "@pelicanplatform/web-client";
 import { Box, Skeleton, Tab, Tabs } from '@mui/material';
 
 import { pelicanObjectUrl } from '@/utils/dataRepositories';
@@ -25,6 +28,7 @@ export default function RepositoryFileBrowser({
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
+    registerPelicanSw("/downloadServiceWorker.js");
     setMounted(true);
   }, []);
 
