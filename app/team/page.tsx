@@ -2,7 +2,7 @@ import { Box, Container, Grid, Typography, Divider } from '@mui/material';
 import { LeaderCard, StaffCard } from "./_components"
 import React from 'react';
 import { getStaff } from '@/utils/staff';
-import PageHeader from '@/components/PageHeader';
+import { PageHero } from '@/components/design';
 
 export default async function Page() {
   const team = await getStaff('fabaid');
@@ -27,9 +27,14 @@ export default async function Page() {
   );
 
   return (
-    <Box pt={6}>
-      <Container maxWidth={'lg'}>
-        <PageHeader title='Team' texture='/design/fabric/Fabric-22.png' />
+    <>
+      <PageHero
+        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Team' }]}
+        kicker='The people'
+        title='Team'
+        lead='The researchers, engineers, and facilitators building and operating the FabAID data fabric.'
+      />
+      <Container maxWidth={'lg'} sx={{ py: { xs: 6, md: 9 } }}>
         <Grid container justifyContent={'center'} gap={2}>
           {staff.sort((a,b) => (a?.weight || 0) - (b?.weight || 0)).map((member, index) => {
             return (
@@ -82,6 +87,6 @@ export default async function Page() {
           </>
         )}
       </Container>
-    </Box>
+    </>
   );
 }

@@ -37,3 +37,8 @@ next-env.d.ts
 # Generated Data
 public/data/data-repositories.json
 public/downloadServiceWorker.js
+public/images/logos/nextImageExportOptimizer
+public/images/next-image-export-optimizer-hashes.json
+
+# Jetbrains
+.idea

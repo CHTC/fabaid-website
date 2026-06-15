@@ -67,6 +67,7 @@ interface StaffBase {
   promoted?: boolean;
   weight?: number;
   description?: string;
+  is_facilitator?: number;
   status: 'Staff' | 'Student' | 'Past';
   organizations: Website[];
 }

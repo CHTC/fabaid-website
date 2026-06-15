@@ -3,26 +3,19 @@ import type { Metadata } from "next";
 import {Box} from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import { PlayArrow, PeopleAlt, Storage as StorageIcon } from '@mui/icons-material';
 
-import UWBanner from "@chtc/web-components/UW/Banner"
 import theme, {fonts} from "@chtc/web-components/themes/chtc"
 
 import "./globals.css"
-import Header from "@/components/Header";
 import Analytics from "@/components/Analytics";
-import Footer from '@/components/Footer';
+import { SiteHeader, SiteFooter } from "@/components/design";
 
 export const metadata: Metadata = {
   title: "FabAID",
-  description: "A web application ",
+  description:
+    "A national fabric of open data services for data-intensive and AI-driven research, operated by the Center for High Throughput Computing at UW–Madison.",
 	metadataBase: new URL(`https://${process.env.HOSTNAME}`),
 };
-
-const pages = [
-  { label: 'Repositories', path: '/repository/', icon: <StorageIcon /> },
-  { label: 'Team', path: '/team/', icon: <PeopleAlt /> },
-]
 
 export default function RootLayout({
   children,
@@ -37,9 +30,9 @@ export default function RootLayout({
       <AppRouterCacheProvider>
         <Box component={"body"} sx={{ margin: 0, padding: 0 }}>
           <ThemeProvider theme={theme}>
-						<Header pages={pages} />
+						<SiteHeader />
 						{children}
-              <Footer />
+              <SiteFooter />
           </ThemeProvider>
         </Box>
       </AppRouterCacheProvider>

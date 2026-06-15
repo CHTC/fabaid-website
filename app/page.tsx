@@ -1,11 +1,29 @@
-import Hero from "./_components/Hero";
-import LogoCarousel from "./_components/LogoCarousel";
+import HomeHero from './_components/HomeHero';
+import { ServicesGrid, FacilitationSchool } from './_components/HomeSections';
+import { MetricsBand, Callout } from '@/components/design';
+import LogoCarousel from './_components/LogoCarousel';
 
-export default async function Home() {
+const HOME_METRICS = [
+  { value: 84, unit: '', label: 'Institutions served' },
+  { value: 286, unit: ' PB', label: 'Research data delivered' },
+  { value: 174, unit: '', label: 'Projects supported' },
+  { value: 39, unit: '', label: 'Fields of science served' },
+];
+
+export default function Home() {
   return (
     <>
-      <Hero />
+      <HomeHero />
       <LogoCarousel />
+      <MetricsBand
+        kicker='By the numbers'
+        heading='A fabric the whole country is computing on.'
+        metrics={HOME_METRICS}
+        note='Across the past 12 months'
+      />
+      <ServicesGrid />
+      <FacilitationSchool />
+      <Callout />
     </>
   );
 }
