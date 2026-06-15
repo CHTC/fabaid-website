@@ -21,11 +21,12 @@ export const metadata: Metadata = {
 };
 
 const PARTNERS = [
-  { name: 'CHTC', body: 'Center for High Throughput Computing — operator of the fabric.', href: 'https://chtc.wisc.edu' },
-  { name: 'Morgridge Institute', body: 'Biomedical research partner investing in the HTC vision.', href: 'https://morgridge.org' },
-  { name: 'PATh', body: 'NSF-funded partnership advancing throughput computing nationally.', href: 'https://path-cc.io' },
-  { name: 'OSG Consortium', body: 'Distributed HTC for the national science community.', href: 'https://osg-htc.org' },
-  { name: 'Pelican', body: 'Open platform for federating data repositories.', href: 'https://pelicanplatform.org' },
+  { name: 'CHTC', body: 'Center for High Throughput Computing — operator of the fabric.', href: 'https://chtc.wisc.edu', logo: '/images/logos/chtc.png' },
+  { name: 'Morgridge Institute', body: 'Biomedical research partner investing in the HTC vision.', href: 'https://morgridge.org', logo: '/images/logos/morgridge.png' },
+  { name: 'PATh', body: 'NSF-funded partnership advancing throughput computing nationally.', href: 'https://path-cc.io', logo: '/images/logos/path.png' },
+  { name: 'OSG Consortium', body: 'Distributed HTC for the national science community.', href: 'https://osg-htc.org', logo: '/images/logos/osg.svg' },
+  { name: 'Pelican', body: 'Open platform for federating data repositories.', href: 'https://pelicanplatform.org', logo: '/images/logos/pelican.png' },
+  { name: 'HTCondor', body: 'Open-source High Throughput Computing software at the heart of the fabric.', href: 'https://htcondor.org', logo: '/images/logos/htcondor.png' },
 ];
 
 export default function Page() {
@@ -98,7 +99,7 @@ export default function Page() {
                 target={p.href.startsWith('http') ? '_blank' : undefined}
                 rel={p.href.startsWith('http') ? 'noopener' : undefined}
                 underline='none'
-                sx={{ ...cardSx, ...cardHoverSx, color: 'inherit', display: 'block', position: 'relative' }}
+                sx={{ ...cardSx, ...cardHoverSx, color: 'inherit', display: 'flex', flexDirection: 'column', position: 'relative' }}
               >
                 <Launch
                   sx={{ position: 'absolute', top: 18, right: 18, fontSize: 18, color: colors.muted2 }}
@@ -108,6 +109,13 @@ export default function Page() {
                   {p.name}
                 </Typography>
                 <Typography sx={{ color: colors.muted, fontSize: '0.95rem', mt: 0.75 }}>{p.body}</Typography>
+                <Box
+                  component='img'
+                  src={p.logo}
+                  alt=''
+                  aria-hidden='true'
+                  sx={{ height: 44, width: 'auto', maxWidth: '70%', objectFit: 'contain', display: 'block', mt: 'auto', mr: 'auto', pt: 3, alignSelf: 'flex-start' }}
+                />
               </Link>
             ))}
           </Box>
