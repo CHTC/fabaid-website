@@ -20,7 +20,7 @@ export default async function Page() {
       (member) =>
         member.organizations.includes('fabaid') && member.status !== 'Past'
     )
-    .sort((a, b) => (a.fabaid?.weight || 0) - (b.fabaid?.weight || 0));
+    .sort((a, b) => (a.weight || 0) - (b.weight || 0));
   const pastStaff = team.filter(
     (member) =>
       member.organizations.includes('fabaid') && member.status === 'Past'

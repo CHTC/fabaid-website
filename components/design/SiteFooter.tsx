@@ -117,13 +117,35 @@ export default function SiteFooter() {
             '& a': { color: '#7d7770', '&:hover': { color: '#fff' } },
           }}
         >
-          <Box component='span' sx={{ maxWidth: '70ch' }}>
-            Supported by the National Science Foundation under{' '}
-            <Link href={NSF_AWARD_URL} target='_blank' rel='noopener' underline='hover'>
-              Cooperative Agreement OAC-2331480
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, maxWidth: '74ch' }}>
+            <Link
+              href={NSF_AWARD_URL}
+              target='_blank'
+              rel='noopener'
+              aria-label='National Science Foundation award'
+              sx={{ flexShrink: 0, lineHeight: 0 }}
+            >
+              <Box
+                component='img'
+                src='/images/logos/nsf.png'
+                alt='National Science Foundation'
+                sx={{
+                  height: 52,
+                  width: 52,
+                  objectFit: 'contain',
+                  display: 'block',
+                  filter: 'drop-shadow(0 0 6px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(255,255,255,0.5))',
+                }}
+              />
             </Link>
-            . Operated by the Center for High Throughput Computing · University of
-            Wisconsin–Madison.
+            <Box component='span'>
+              Supported by the National Science Foundation under{' '}
+              <Link href={NSF_AWARD_URL} target='_blank' rel='noopener' underline='hover'>
+                Cooperative Agreement OAC-2331480
+              </Link>
+              . Operated by the Center for High Throughput Computing · University of
+              Wisconsin–Madison.
+            </Box>
           </Box>
           <Box component='span'>
             © 2026 ·{' '}

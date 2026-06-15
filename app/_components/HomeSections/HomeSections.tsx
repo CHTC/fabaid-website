@@ -90,7 +90,7 @@ export function ServicesGrid() {
           ))}
           {/* CTA card */}
           <Link
-            href='/data-access-point/'
+            href='mailto:contact@fabaid.io'
             underline='none'
             sx={{
               borderRadius: '14px',
@@ -105,10 +105,10 @@ export function ServicesGrid() {
             }}
           >
             <Typography variant='h3' component='h3' sx={{ color: '#fff', fontSize: '1.45rem' }}>
-              See how it all fits together
+              Contact us to integrate
             </Typography>
             <Typography sx={{ color: 'rgba(255,255,255,.82)' }}>
-              Walk the full data path from repository to result.
+              We are here to help you integrate your data workflow into the fabric.
             </Typography>
             <Box
               sx={{
@@ -124,7 +124,7 @@ export function ServicesGrid() {
                 py: 0.75,
               }}
             >
-              All services →
+              Contact Us →
             </Box>
           </Link>
         </Box>
