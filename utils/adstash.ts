@@ -1,5 +1,7 @@
 /**
  * A collection of functions for uniform queries to the adstash Elasticsearch endpoint
+ *
+ * This summary index is a daily aggregation of OSPool Project Usage and Resource Providers information
  */
 
 const ADSTASH_SUMMARY_INDEX: string = "ospool-summary-*"
@@ -63,10 +65,10 @@ export type OSPoolOverviewStats = OverviewStats & {
 }
 
 export type ProjectData = ComputeStats & {
-  broadFieldOfScience: string 
-  detailedFieldOfScience: string 
-  majorFieldOfScience: string 
-  projectEpscorState: boolean 
+  broadFieldOfScience: string // Comes from SED-CIP: https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55
+  detailedFieldOfScience: string // Comes from SED-CIP: https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55
+  majorFieldOfScience: string // Comes from SED-CIP: https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55
+  projectEpscorState: boolean
   projectInstitutionCarnegieClassification2025: string
   projectInstitutionIpedsHistoricallyBlackCollegeOrUniversity: boolean 
   projectInstitutionIpedsTribalCollegeOrUniversity: boolean
