@@ -4,41 +4,66 @@ import React from 'react';
 import { Kicker, colors, mono } from '@/components/design';
 import { formatBytes, formatCount } from '@/utils/dataRepositories';
 import { formatCompact, type OsdfProject } from '@/utils/osdfProjects';
+import type { ProjectDailyPoint } from '@/utils/adstash';
+import FieldOfScienceChip from './fieldOfScience';
+import Sparkline from './Sparkline';
+
+const DAY_FMT = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
 interface StatProps {
   label: string;
   value: string;
   emphasis?: boolean;
+  /** Cumulative daily series for this metric (oldest → newest). */
+  series?: number[];
 }
 
-function Stat({ label, value, emphasis = false }: StatProps) {
+function Stat({ label, value, emphasis = false, series }: StatProps) {
   return (
-    <Box sx={{ borderTop: `2px solid ${emphasis ? colors.red : colors.line}`, pt: 1.5 }}>
-      <Box
-        sx={{
-          fontWeight: 700,
-          letterSpacing: '-0.02em',
-          lineHeight: 1,
-          color: emphasis ? colors.red : colors.ink,
-          fontSize: emphasis ? { xs: '2.2rem', md: '2.8rem' } : { xs: '1.4rem', md: '1.7rem' },
-        }}
-      >
-        {value}
+    <Box>
+      {/* Cumulative curve sits above the divider, which acts as its x-axis. */}
+      <Sparkline
+        data={series ?? []}
+        height={emphasis ? 48 : 56}
+        color={emphasis ? colors.red : colors.red300}
+        label={`Cumulative ${label.toLowerCase()} over the past year`}
+      />
+      <Box sx={{ borderTop: `2px solid ${emphasis ? colors.red : colors.line}`, pt: 1.5 }}>
+        <Box
+          sx={{
+            fontWeight: 700,
+            letterSpacing: '-0.02em',
+            lineHeight: 1,
+            color: emphasis ? colors.red : colors.ink,
+            fontSize: emphasis ? { xs: '2.2rem', md: '2.8rem' } : { xs: '1.4rem', md: '1.7rem' },
+          }}
+        >
+          {value}
+        </Box>
+        <Typography
+          sx={{
+            mt: 1,
+            fontFamily: mono,
+            fontSize: { xs: '0.9rem', md: '1rem' },
+            letterSpacing: '0.05em',
+            textTransform: 'uppercase',
+            color: colors.muted,
+          }}
+        >
+          {label}
+        </Typography>
       </Box>
-      <Typography
-        sx={{
-          mt: 1,
-          fontFamily: mono,
-          fontSize: '0.72rem',
-          letterSpacing: '0.05em',
-          textTransform: 'uppercase',
-          color: colors.muted,
-        }}
-      >
-        {label}
-      </Typography>
     </Box>
   );
+}
+
+/** Running total of one daily metric, for a cumulative sparkline. */
+function cumulative(daily: ProjectDailyPoint[], key: keyof ProjectDailyPoint): number[] {
+  let sum = 0;
+  return daily.map((d) => {
+    sum += d[key];
+    return sum;
+  });
 }
 
 /** Broader-impacts tags derived from the PI institution. */
@@ -84,6 +109,9 @@ export interface ProjectSummaryProps {
   /** Show the project name / PI / field header. Disable when a page hero
    * already presents that (the dedicated project page). Default true. */
   header?: boolean;
+  /** Per-day usage series; when present, draws cumulative sparklines over the
+   * metrics. Fetched separately (per project) so the list query stays light. */
+  daily?: ProjectDailyPoint[];
 }
 
 /**
@@ -91,13 +119,17 @@ export interface ProjectSummaryProps {
  * Pure presentational — reused by the featured card, the table modal, and the
  * per-project page (with `header={false}` since its hero shows the title).
  */
-export default function ProjectSummary({ project, header = true }: ProjectSummaryProps) {
+export default function ProjectSummary({ project, header = true, daily = [] }: ProjectSummaryProps) {
   const subtitleParts = [
     project.piName && `PI: ${project.piName}`,
     project.organization || project.institution,
   ].filter(Boolean);
 
   const tags = attributeTags(project);
+  const range =
+    daily.length > 0
+      ? `${DAY_FMT.format(new Date(daily[0].date))} – ${DAY_FMT.format(new Date(daily[daily.length - 1].date))}`
+      : null;
 
   return (
     <Box>
@@ -115,44 +147,40 @@ export default function ProjectSummary({ project, header = true }: ProjectSummar
           )}
 
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1.5 }}>
-            {project.fieldOfScience && (
-              <Box
-                component='span'
-                sx={{
-                  fontFamily: mono,
-                  fontSize: '0.72rem',
-                  letterSpacing: '0.04em',
-                  color: colors.red,
-                  border: `1px solid ${colors.red}`,
-                  borderRadius: '999px',
-                  px: 1.25,
-                  py: 0.4,
-                  bgcolor: colors.red050,
-                }}
-              >
-                {project.fieldOfScience}
-              </Box>
-            )}
+            <FieldOfScienceChip field={project.fieldOfScience} />
             <AttrChips tags={tags} />
           </Box>
         </>
       )}
 
-      {!header && tags.length > 0 && (
-        <Box sx={{ mb: 2 }}>
+      {!header && (project.fieldOfScience || tags.length > 0) && (
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 2 }}>
+          <FieldOfScienceChip field={project.fieldOfScience} />
           <AttrChips tags={tags} />
         </Box>
       )}
 
       {project.description && (
-        <Typography sx={{ mt: header ? 2 : 0, color: colors.muted, lineHeight: 1.6 }}>
+        <Typography
+          sx={{
+            mt: header ? 2 : 0,
+            color: colors.muted,
+            lineHeight: 1.6,
+            fontSize: { xs: '1.15rem', md: '1.3rem' },
+          }}
+        >
           {project.description}
         </Typography>
       )}
 
       {/* Hero OSDF metric */}
       <Box sx={{ mt: 3 }}>
-        <Stat emphasis label='Data delivered over the OSDF' value={formatBytes(project.osdfBytes)} />
+        <Stat
+          emphasis
+          label='Data delivered over the OSDF'
+          value={formatBytes(project.osdfBytes)}
+          series={cumulative(daily, 'osdfByteTransferCount')}
+        />
       </Box>
 
       {/* Supporting metrics */}
@@ -160,15 +188,41 @@ export default function ProjectSummary({ project, header = true }: ProjectSummar
         sx={{
           mt: 3,
           display: 'grid',
-          gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(4, 1fr)' },
-          gap: 2.5,
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: { xs: 2.5, sm: 3 },
         }}
       >
-        <Stat label='Files via OSDF' value={formatCompact(project.osdfFiles)} />
-        <Stat label='CPU hours' value={formatCompact(project.cpuHours)} />
-        <Stat label='GPU hours' value={formatCompact(project.gpuHours)} />
-        <Stat label='Jobs' value={formatCount(project.jobs)} />
+        <Stat label='Jobs' value={formatCount(project.jobs)} series={cumulative(daily, 'numJobs')} />
+        <Stat
+          label='Files via OSDF'
+          value={formatCompact(project.osdfFiles)}
+          series={cumulative(daily, 'osdfFileTransferCount')}
+        />
+        <Stat
+          label='CPU hours'
+          value={formatCompact(project.cpuHours)}
+          series={cumulative(daily, 'cpuHours')}
+        />
+        <Stat
+          label='GPU hours'
+          value={formatCompact(project.gpuHours)}
+          series={cumulative(daily, 'gpuHours')}
+        />
       </Box>
+
+      {range && (
+        <Typography
+          sx={{
+            mt: 3,
+            fontFamily: mono,
+            fontSize: '0.72rem',
+            letterSpacing: '0.02em',
+            color: colors.muted2,
+          }}
+        >
+          Cumulative usage · {range}
+        </Typography>
+      )}
     </Box>
   );
 }

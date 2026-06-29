@@ -19,6 +19,7 @@ import { ChevronRight } from '@mui/icons-material';
 import { colors } from '@/components/design';
 import { formatBytes, formatCount } from '@/utils/dataRepositories';
 import { formatCompact, type OsdfProject } from '@/utils/osdfProjects';
+import { fieldOfScienceColor } from './fieldOfScience';
 
 export interface ProjectsExplorerProps {
   projects: OsdfProject[];
@@ -86,7 +87,10 @@ export default function ProjectsExplorer({ projects }: ProjectsExplorerProps) {
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant='body2' color='text.secondary'>
+                  <Typography
+                    variant='body2'
+                    sx={{ color: fieldOfScienceColor(p.fieldOfScience).fg, fontWeight: 600 }}
+                  >
                     {p.fieldOfScience}
                   </Typography>
                 </TableCell>

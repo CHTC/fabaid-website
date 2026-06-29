@@ -8,7 +8,9 @@
  * never has to call either upstream service.
  */
 
-import { getProjects } from './adstash';
+import { getProjects, getProjectDaily, type ProjectDailyPoint } from './adstash';
+
+export type { ProjectDailyPoint };
 
 const TOPOLOGY_URL = 'https://topology.opensciencegrid.org/miscproject/json';
 
@@ -111,6 +113,19 @@ async function loadOsdfProjects(): Promise<OsdfProject[]> {
 export async function getOsdfProject(name: string): Promise<OsdfProject | null> {
   const projects = await getOsdfProjects();
   return projects.find((p) => p.name === name) ?? null;
+}
+
+/**
+ * Per-day usage series for one project, for the detail-page sparklines. Fails
+ * soft to `[]` so a daily-query hiccup degrades to "no sparklines" rather than
+ * breaking the page.
+ */
+export async function getOsdfProjectDaily(name: string): Promise<ProjectDailyPoint[]> {
+  try {
+    return await getProjectDaily(name);
+  } catch {
+    return [];
+  }
 }
 
 /** Pick the project to feature: the top OSDF mover that has a real description. */

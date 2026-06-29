@@ -46,7 +46,6 @@ const SERVICES = [
     icon: <Inventory2 />,
     title: 'Data Repositories',
     body: 'Browse the data repositories integrated with the OSDF — their datasets, access, and namespaces.',
-    tag: 'FabAID service',
     href: '/repository/',
   },
   {
@@ -54,14 +53,13 @@ const SERVICES = [
     icon: <SmartToy />,
     title: 'AI Agent Platform',
     body: 'An LLM assistant that helps researchers move data and orchestrate workflows in plain language.',
-    tag: 'OpenWebUI · Ollama ↗',
     href: '/ai-agent/',
   },
   {
     num: '05',
     icon: <Public />,
     title: 'CDN & caching',
-    body: 'Anycast caches positioned near most U.S. institutions keep hot data close to the compute.',
+    body: 'Caches positioned near most U.S. institutions keep hot data close to the compute.',
     tag: 'powered by Pelican · part of OSDF',
     tagLogo: PELICAN_LOGO,
     href: '/data-federation/',
@@ -76,7 +74,7 @@ export function ServicesGrid() {
           center
           kicker='What we provide'
           title='The service fabric'
-          lead='Six composable services that take data from a repository all the way to a running, AI-assisted workflow — built on open infrastructure.'
+          lead='Five composable services that take data from a repository all the way to a running, AI-assisted workflow — built on open infrastructure.'
         />
         <Box
           sx={{

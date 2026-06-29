@@ -37,7 +37,7 @@ const STEPS = [
   {
     marker: 'STEP 02',
     title: 'Caches pull on demand',
-    body: 'Anycast caches near most US institutions fetch and hold hot objects close to compute.',
+    body: 'Caches near most US institutions fetch and hold hot objects close to compute.',
   },
   {
     marker: 'STEP 03',
@@ -171,7 +171,6 @@ export default async function Page() {
           <Box sx={{ display: 'flex', gap: 1.5, justifyContent: 'center', flexWrap: 'wrap' }}>
             <PoweredByChip label='Pelican ↗' href='https://pelicanplatform.org' />
             <PoweredByChip label='OSDF caches' />
-            <PoweredByChip label='Anycast routing' />
             <PoweredByChip label='Namespace registry' />
           </Box>
         </Container>

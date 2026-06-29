@@ -1,12 +1,11 @@
 import * as React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Box, Button, Container } from '@mui/material';
-import { ArrowBack } from '@mui/icons-material';
+import { Box, Container } from '@mui/material';
 
 import { PageHero, Callout, cardSx } from '@/components/design';
 import { ProjectSummary } from '@/components/projects';
-import { getOsdfProject, getOsdfProjects } from '@/utils/osdfProjects';
+import { getOsdfProject, getOsdfProjectDaily, getOsdfProjects } from '@/utils/osdfProjects';
 
 type PageParams = { project: string };
 type PageProps = { params: Promise<PageParams> };
@@ -46,6 +45,8 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
 
+  const daily = await getOsdfProjectDaily(name);
+
   return (
     <>
       <PageHero
@@ -55,18 +56,15 @@ export default async function Page({ params }: PageProps) {
           { label: 'OSDF projects', href: '/osdf-users/' },
           { label: project.name },
         ]}
-        kicker={project.fieldOfScience}
+        kicker='OSDF project'
         title={project.name}
         lead={subtitle(project.piName, project.organization || project.institution)}
       />
 
       <Box component='section' sx={{ py: { xs: 6, md: 9 } }}>
         <Container maxWidth='lg'>
-          <Button href='/osdf-users/' startIcon={<ArrowBack />} sx={{ mb: 3 }}>
-            All OSDF projects
-          </Button>
           <Box sx={{ ...cardSx, p: { xs: 3, md: 5 } }}>
-            <ProjectSummary project={project} header={false} />
+            <ProjectSummary project={project} header={false} daily={daily} />
           </Box>
         </Container>
       </Box>

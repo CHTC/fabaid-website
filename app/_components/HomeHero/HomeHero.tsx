@@ -234,26 +234,15 @@ function NetworkIllustration() {
         <circle r='82' fill='url(#hubGlow)' />
         <circle r='54' fill='url(#hubFill)' stroke='#F4938B' strokeWidth='1' strokeOpacity='0.5' />
         <text
-          y='-1'
+          y='10'
           textAnchor='middle'
           fill='#fff'
           fontFamily='inherit'
-          fontSize='29'
+          fontSize='26'
           fontWeight='700'
           letterSpacing='-0.5'
         >
           FabAID
-        </text>
-        <text
-          y='19'
-          textAnchor='middle'
-          fill='#ffd9d6'
-          fontFamily='IBM Plex Mono, monospace'
-          fontSize='8'
-          letterSpacing='3'
-          opacity='0.85'
-        >
-          THE DATA FABRIC
         </text>
       </g>
 

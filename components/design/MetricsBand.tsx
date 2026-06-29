@@ -26,12 +26,18 @@ const DURATION = 1400;
 
 function CountUp({ target, animate }: { target: number; animate: boolean }) {
   const ref = React.useRef<HTMLSpanElement>(null);
-  const [display, setDisplay] = React.useState(animate ? '0' : target.toLocaleString());
+  // Initialize to the real figure so it's present in the server-rendered HTML
+  // (for SEO / Google snapshot / no-JS / text extraction). Once JS runs we
+  // reset to 0 and count up on scroll-in.
+  const [display, setDisplay] = React.useState(target.toLocaleString());
 
   React.useEffect(() => {
     if (!animate) return;
     const el = ref.current;
     if (!el) return;
+    // Without IntersectionObserver we can't animate on scroll-in; leave the
+    // real figure (already shown) in place rather than blanking it to 0.
+    if (!('IntersectionObserver' in window)) return;
 
     let frame = 0;
     let started = false;
@@ -48,10 +54,9 @@ function CountUp({ target, animate }: { target: number; animate: boolean }) {
       frame = requestAnimationFrame(step);
     };
 
-    if (!('IntersectionObserver' in window)) {
-      setDisplay(target.toLocaleString());
-      return;
-    }
+    // Reset to 0 now (the band sits below the fold at load) so the count-up
+    // runs cleanly when it scrolls into view.
+    setDisplay('0');
 
     const io = new IntersectionObserver(
       (entries) => {

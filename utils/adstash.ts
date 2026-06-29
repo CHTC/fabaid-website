@@ -64,6 +64,16 @@ export type OSPoolOverviewStats = OverviewStats & {
   date: Date
 }
 
+/** One day of a project's usage, used to draw cumulative sparklines. */
+export type ProjectDailyPoint = {
+  date: number // epoch milliseconds (UTC, day-aligned)
+  osdfByteTransferCount: number
+  osdfFileTransferCount: number
+  cpuHours: number
+  gpuHours: number
+  numJobs: number
+}
+
 export type ProjectData = ComputeStats & {
   broadFieldOfScience: string // Comes from SED-CIP: https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55
   detailedFieldOfScience: string // Comes from SED-CIP: https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55
@@ -135,9 +145,24 @@ type InstitutionsQueryResponse = {
   };
 };
 
+type DailyBucket = {
+  key: number; // epoch milliseconds
+  OSDFByteTransferCount: ESValue;
+  OSDFFileTransferCount: ESValue;
+  CpuHours: ESValue;
+  GpuHours: ESValue;
+  NumJobs: ESValue;
+};
+
 type StandardBucket = BaseComputeMetrics & {
   key: string;
   CommonFields: ESTopHits;
+};
+
+type ProjectDailyResponse = {
+  aggregations: {
+    Daily: { buckets: DailyBucket[] };
+  };
 };
 
 type ProjectsQueryResponse = {
@@ -368,6 +393,55 @@ export async function getProjects(
     }
     return p
   }, {})
+}
+
+/**
+ * Per-day usage series for a SINGLE project, for cumulative sparklines. Scoped
+ * to one project so the date-histogram stays at ~365 buckets — deliberately not
+ * folded into getProjects(), where a per-project histogram across every project
+ * would blow past Elasticsearch's max_buckets limit and fail the whole query.
+ */
+export async function getProjectDaily(
+  projectName: string,
+  startTime: number = DATE_RANGE['oneYearAgo'], endTime: number = DATE_RANGE['now']
+): Promise<ProjectDailyPoint[]> {
+  const usageQueryResult = await elasticSearch<ProjectDailyResponse>({
+    size: 0,
+    query: {
+      bool: {
+        filter: [
+          { range: { Date: { gte: startTime, lte: endTime } } },
+          { term: { ["ProjectName.keyword"]: projectName } }
+        ]
+      }
+    },
+    "aggs": {
+      "Daily": {
+        "date_histogram": {
+          "field": "Date",
+          "calendar_interval": "day",
+          "min_doc_count": 0,
+          "extended_bounds": { "min": startTime, "max": endTime }
+        },
+        "aggs": {
+          "OSDFByteTransferCount": { "sum": { "field": "OSDFByteTransferCount" } },
+          "OSDFFileTransferCount": { "sum": { "field": "OSDFFileTransferCount" } },
+          "CpuHours": { "sum": { "field": "CpuHours" } },
+          "GpuHours": { "sum": { "field": "GpuHours" } },
+          "NumJobs": { "sum": { "field": "NumJobs" } }
+        }
+      }
+    }
+  })
+
+  return usageQueryResult.aggregations.Daily.buckets.map((d) => ({
+    date: d.key,
+    osdfByteTransferCount: d.OSDFByteTransferCount.value ?? 0,
+    osdfFileTransferCount: d.OSDFFileTransferCount.value ?? 0,
+    cpuHours: d.CpuHours.value ?? 0,
+    gpuHours: d.GpuHours.value ?? 0,
+    numJobs: d.NumJobs.value ?? 0,
+  }))
 }
 
 export async function getInstitutionOverview(institutionName: string): Promise<Record<string, Partial<ProjectData>>> {
