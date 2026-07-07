@@ -3,6 +3,7 @@
 import * as React from 'react';
 import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { Box, Link, Typography } from '@mui/material';
 
 export interface MarkdownProps {
@@ -50,6 +51,15 @@ const components: Components = {
       {children}
     </Typography>
   ),
+  img: ({ src, alt }) => (
+    <Box
+      component='img'
+      src={typeof src === 'string' ? src : undefined}
+      alt={alt ?? ''}
+      loading='lazy'
+      sx={{ maxWidth: '100%', height: 'auto', display: 'block', borderRadius: 1, my: 2 }}
+    />
+  ),
   code: ({ children }) => (
     <Box
       component='code'
@@ -69,7 +79,11 @@ const components: Components = {
 
 export default function Markdown({ children }: MarkdownProps) {
   return (
-    <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw]}
+      components={components}
+    >
       {children}
     </ReactMarkdown>
   );

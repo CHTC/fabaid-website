@@ -20,6 +20,7 @@ export default function Home() {
         heading='A fabric the whole country is computing on.'
         metrics={HOME_METRICS}
         note='Across the past 12 months'
+        cta={{ label: 'View the projects we support', href: 'https://fabaid.io/osdf-users/' }}
       />
       <ServicesGrid />
       <FacilitationSchool />

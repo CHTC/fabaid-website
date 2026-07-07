@@ -109,13 +109,18 @@ export default function Page() {
                   {p.name}
                 </Typography>
                 <Typography sx={{ color: colors.muted, fontSize: '0.95rem', mt: 0.75 }}>{p.body}</Typography>
-                <Box
-                  component='img'
-                  src={p.logo}
-                  alt=''
-                  aria-hidden='true'
-                  sx={{ height: 44, width: 'auto', maxWidth: '70%', objectFit: 'contain', display: 'block', mt: 'auto', mr: 'auto', pt: 3, alignSelf: 'flex-start' }}
-                />
+                <Box sx={{ mt: 'auto', pt: 3, width: '70%', alignSelf: 'flex-start' }}>
+                  <Box sx={{ position: 'relative', height: 44, width: '100%' }}>
+                    <ExportedImage
+                      src={p.logo}
+                      alt=''
+                      aria-hidden='true'
+                      fill
+                      style={{ objectFit: 'contain', objectPosition: 'left center' }}
+                      sizes='200px'
+                    />
+                  </Box>
+                </Box>
               </Link>
             ))}
           </Box>

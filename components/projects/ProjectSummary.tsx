@@ -19,15 +19,18 @@ interface StatProps {
 }
 
 function Stat({ label, value, emphasis = false, series }: StatProps) {
+  const showSparkline = series !== undefined && series.length > 0;
   return (
     <Box>
       {/* Cumulative curve sits above the divider, which acts as its x-axis. */}
-      <Sparkline
-        data={series ?? []}
-        height={emphasis ? 48 : 56}
-        color={emphasis ? colors.red : colors.red300}
-        label={`Cumulative ${label.toLowerCase()} over the past year`}
-      />
+      {showSparkline && (
+        <Sparkline
+          data={series}
+          height={emphasis ? 48 : 56}
+          color={emphasis ? colors.red : colors.red300}
+          label={`Cumulative ${label.toLowerCase()} over the past year`}
+        />
+      )}
       <Box sx={{ borderTop: `2px solid ${emphasis ? colors.red : colors.line}`, pt: 1.5 }}>
         <Box
           sx={{
@@ -192,22 +195,10 @@ export default function ProjectSummary({ project, header = true, daily = [] }: P
           gap: { xs: 2.5, sm: 3 },
         }}
       >
-        <Stat label='Jobs' value={formatCount(project.jobs)} series={cumulative(daily, 'numJobs')} />
-        <Stat
-          label='Files via OSDF'
-          value={formatCompact(project.osdfFiles)}
-          series={cumulative(daily, 'osdfFileTransferCount')}
-        />
-        <Stat
-          label='CPU hours'
-          value={formatCompact(project.cpuHours)}
-          series={cumulative(daily, 'cpuHours')}
-        />
-        <Stat
-          label='GPU hours'
-          value={formatCompact(project.gpuHours)}
-          series={cumulative(daily, 'gpuHours')}
-        />
+        <Stat label='Jobs' value={formatCount(project.jobs)} />
+        <Stat label='Files via OSDF' value={formatCompact(project.osdfFiles)} />
+        <Stat label='CPU hours' value={formatCompact(project.cpuHours)} />
+        <Stat label='GPU hours' value={formatCompact(project.gpuHours)} />
       </Box>
 
       {range && (

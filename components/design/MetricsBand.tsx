@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import React from 'react';
 
 import Kicker from './Kicker';
@@ -20,6 +20,8 @@ export interface MetricsBandProps {
   heading?: React.ReactNode;
   /** Small caption qualifying the figures, e.g. a time horizon. */
   note?: string;
+  /** Optional call-to-action button rendered beneath the metrics grid. */
+  cta?: { label: string; href: string };
 }
 
 const DURATION = 1400;
@@ -82,7 +84,7 @@ function CountUp({ target, animate }: { target: number; animate: boolean }) {
 }
 
 /** Dark "ink" statistics band with optional heading and count-up numbers. */
-export default function MetricsBand({ metrics, kicker, heading, note }: MetricsBandProps) {
+export default function MetricsBand({ metrics, kicker, heading, note, cta }: MetricsBandProps) {
   return (
     <Box component='section' sx={{ bgcolor: colors.ink, color: '#fff' }}>
       <Container maxWidth='lg' sx={{ py: { xs: 6, md: 11 } }}>
@@ -153,6 +155,19 @@ export default function MetricsBand({ metrics, kicker, heading, note }: MetricsB
             </Box>
           ))}
         </Box>
+        {cta && (
+          <Box sx={{ mt: { xs: 5, md: 6 } }}>
+            <Button
+              variant='contained'
+              color='primary'
+              size='large'
+              href={cta.href}
+              sx={{ borderRadius: '999px' }}
+            >
+              {cta.label}&nbsp;→
+            </Button>
+          </Box>
+        )}
       </Container>
     </Box>
   );

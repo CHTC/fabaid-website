@@ -142,8 +142,7 @@ export function FacilitationSchool() {
           <IconCard hover icon={<Diversity3 />} title='Data Facilitation'>
             <Typography sx={{ color: colors.muted, fontSize: '0.98rem', mb: 1.5 }}>
               Our facilitators treat researchers as partners, guiding teams through a path of{' '}
-              <b>Exploration → Adoption → Ownership</b> so your group builds lasting capability —
-              not a dependency.
+              <b>Exploration → Adoption → Ownership</b> so your group builds lasting capability.
             </Typography>
             <LinkArrow href='/facilitation/'>Meet the team</LinkArrow>
           </IconCard>
