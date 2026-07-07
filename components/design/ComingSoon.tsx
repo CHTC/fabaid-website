@@ -32,7 +32,7 @@ export default function ComingSoon() {
         </Typography>
         <Typography sx={{ color: colors.muted, fontSize: '1.1rem', lineHeight: 1.6 }}>
           We are working to build out public-friendly views for our upcoming plans. Please check
-          back on July 15th, 2026 for the full picture!
+          back for the full picture!
         </Typography>
       </Container>
     </Box>
