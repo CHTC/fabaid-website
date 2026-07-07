@@ -1,4 +1,5 @@
 import { Box, Container, Link, Typography } from '@mui/material';
+import ExportedImage from 'next-image-export-optimizer';
 import React from 'react';
 
 import { colors, mono } from './tokens';
@@ -125,16 +126,16 @@ export default function SiteFooter() {
               aria-label='National Science Foundation award'
               sx={{ flexShrink: 0, lineHeight: 0 }}
             >
-              <Box
-                component='img'
+              <ExportedImage
                 src='/images/logos/nsf.png'
                 alt='National Science Foundation'
-                sx={{
-                  height: 52,
-                  width: 52,
+                width={52}
+                height={52}
+                style={{
                   objectFit: 'contain',
                   display: 'block',
-                  filter: 'drop-shadow(0 0 6px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(255,255,255,0.5))',
+                  filter:
+                    'drop-shadow(0 0 6px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(255,255,255,0.5))',
                 }}
               />
             </Link>

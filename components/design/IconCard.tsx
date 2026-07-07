@@ -1,5 +1,6 @@
 import { Box, Link, Paper, Typography } from '@mui/material';
 import type { SxProps, Theme } from '@mui/material';
+import ExportedImage from 'next-image-export-optimizer';
 import React from 'react';
 
 import { colors, mono } from './tokens';
@@ -132,12 +133,13 @@ export default function IconCard({
               }}
             >
               {tagLogo && (
-                <Box
-                  component='img'
+                <ExportedImage
                   src={tagLogo}
                   alt=''
                   aria-hidden='true'
-                  sx={{ width: 14, height: 14, objectFit: 'contain', display: 'block' }}
+                  width={14}
+                  height={14}
+                  style={{ objectFit: 'contain', display: 'block' }}
                 />
               )}
               {tag}
