@@ -32,7 +32,7 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
 						<SiteHeader />
 						{children}
-              <SiteFooter />
+            <SiteFooter />
           </ThemeProvider>
         </Box>
       </AppRouterCacheProvider>
