@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     'Research projects across the country moving data over the Open Science Data Federation.',
 };
 
-export default async function Page() {
+async function PageDev() {
   const projects = await getOsdfProjects();
 
   return (

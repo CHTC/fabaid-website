@@ -1,6 +1,24 @@
 import { getPaths, getTree } from '@/utils/github';
 import yaml from 'js-yaml';
 
+/**
+ * Order staff by ascending `weight` (lower weight on top). Members without a
+ * weight sink to the bottom and are ordered alphabetically by name among
+ * themselves. A weight of 0 counts as a real weight, not "no weight".
+ */
+export function byWeightThenName(a: Staff, b: Staff): number {
+  const aHasWeight = a.weight != null;
+  const bHasWeight = b.weight != null;
+
+  if (aHasWeight && bHasWeight) {
+    if (a.weight !== b.weight) return (a.weight as number) - (b.weight as number);
+    return a.name.localeCompare(b.name);
+  }
+  if (aHasWeight) return -1;
+  if (bHasWeight) return 1;
+  return a.name.localeCompare(b.name);
+}
+
 export async function getStaff(website: Website): Promise<Staff[]> {
   return getStaffFromRepo(
     'chtc',

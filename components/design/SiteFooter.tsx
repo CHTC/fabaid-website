@@ -15,18 +15,17 @@ interface Col {
 
 const COLUMNS: Col[] = [
   {
-    heading: 'Services',
+    heading: 'Explore',
     links: [
-      { label: 'Data Federation', href: '/data-federation/' },
-      { label: 'Data Access Point', href: '/data-access-point/' },
-      { label: 'Data Repositories', href: '/repository/' },
-      { label: 'AI Agent Platform', href: '/ai-agent/' },
+      { label: 'Services', href: '/services/' },
+      { label: 'Software', href: '/software/' },
+      { label: 'Facilitation', href: '/facilitation/' },
+      { label: 'Community', href: '/community/' },
     ],
   },
   {
-    heading: 'Community',
+    heading: 'Organization',
     links: [
-      { label: 'Facilitation', href: '/facilitation/' },
       { label: 'Team', href: '/team/' },
       { label: 'About', href: '/about/' },
     ],
@@ -142,10 +141,9 @@ export default function SiteFooter() {
             <Box component='span'>
               Supported by the National Science Foundation under{' '}
               <Link href={NSF_AWARD_URL} target='_blank' rel='noopener' underline='hover'>
-                Cooperative Agreement OAC-2331480
+                Cooperative Agreement OAC-2609485
               </Link>
-              . Operated by the Center for High Throughput Computing · University of
-              Wisconsin–Madison.
+              . Operated by the Center for High Throughput Computing.
             </Box>
           </Box>
           <Box component='span'>

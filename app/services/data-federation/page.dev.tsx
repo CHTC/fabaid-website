@@ -46,7 +46,7 @@ const STEPS = [
   },
 ];
 
-export default async function Page() {
+async function PageDev() {
   const [caches, projects] = await Promise.all([getOsdfCaches(), getOsdfProjects()]);
   const featured = pickFeaturedProject(projects);
 

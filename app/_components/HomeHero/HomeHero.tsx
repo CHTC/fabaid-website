@@ -56,7 +56,6 @@ export default function HomeHero() {
           }}
         >
           <Box>
-            <Kicker onDark>A national data fabric · NSF-funded</Kicker>
             <Typography
               variant='h1'
               component='h1'
@@ -68,12 +67,10 @@ export default function HomeHero() {
                 fontSize: { xs: '2.6rem', sm: '3.4rem', md: '4.4rem' },
               }}
             >
-              The connective <Box component='span' sx={{ color: colors.red300 }}>fabric </Box> for
-              data-intensive &amp; AI science.
+              Building a <Box component='span' sx={{ color: colors.red300 }}>fabric </Box> for data-intensive & AI-driven science.
             </Typography>
             <Typography sx={{ color: '#c9c3ba', mt: 3, maxWidth: '46ch', fontSize: { xs: '1.1rem', md: '1.3rem' }, lineHeight: 1.55 }}>
-              FabAID moves research data from where it lives to where it computes — federating
-              storage, caching, discovery, and AI workflows into one open service layer.
+              FabAID is an NSF-funded project building a fabric of services to accelerate data-intensive and AI-driven science — federating storage, caching, discovery, and workflows into an open service layer.
             </Typography>
             <Box sx={{ display: 'flex', gap: 1.75, flexWrap: 'wrap', mt: 4.25 }}>
               <Button
@@ -83,21 +80,7 @@ export default function HomeHero() {
                 href='#services'
                 sx={{ borderRadius: '999px' }}
               >
-                Explore the services&nbsp;↓
-              </Button>
-              <Button
-                variant='outlined'
-                size='large'
-                href='/impact/'
-                sx={{
-                  borderRadius: '999px',
-                  color: '#fff',
-                  borderColor: 'rgba(255,255,255,0.22)',
-                  bgcolor: 'rgba(255,255,255,0.08)',
-                  '&:hover': { bgcolor: 'rgba(255,255,255,0.16)', borderColor: 'rgba(255,255,255,0.22)' },
-                }}
-              >
-                See our impact&nbsp;→
+                Explore FabAID&nbsp;↓
               </Button>
             </Box>
           </Box>
@@ -115,14 +98,14 @@ export default function HomeHero() {
 const HUB_X = 230;
 const HUB_Y = 240;
 
-// The five services FabAID provides, placed radially around the core. Each
-// label sits just below its node, and `icon` selects the glyph drawn inside it.
+// The five pillars of the fabric, placed radially around the core. Each label
+// sits just below its node, and `icon` selects the glyph drawn inside it.
 const SERVICE_NODES = [
-  { x: 230, y: 108, label: 'Data Federation', labelY: 152, icon: 'federation' },
-  { x: 356, y: 199, label: 'Data Access Point', labelY: 243, icon: 'access' },
-  { x: 308, y: 347, label: 'Data Repositories', labelY: 391, icon: 'repos' },
-  { x: 152, y: 347, label: 'AI Agent', labelY: 391, icon: 'ai' },
-  { x: 104, y: 199, label: 'CDN & Caching', labelY: 243, icon: 'cdn' },
+  { x: 230, y: 108, label: 'Data Delivery', labelY: 152, icon: 'delivery' },
+  { x: 356, y: 199, label: 'Data Transformation', labelY: 243, icon: 'transform' },
+  { x: 308, y: 347, label: 'Software', labelY: 391, icon: 'software' },
+  { x: 152, y: 347, label: 'Community', labelY: 391, icon: 'community' },
+  { x: 104, y: 199, label: 'Facilitation', labelY: 243, icon: 'facilitation' },
 ];
 
 /** Red service glyphs, centered on the origin, sized to sit inside a node. */
@@ -135,38 +118,7 @@ function ServiceIcon({ type }: { type: string }) {
     strokeLinejoin: 'round' as const,
   };
   switch (type) {
-    case 'federation': // funnel / filter
-      return <path d='M-7 -6 H7 L1.5 0.5 V6.5 L-1.5 4.5 V0.5 Z' {...stroke} />;
-    case 'access': // crosshair / target
-      return (
-        <g {...stroke}>
-          <circle r='5.5' />
-          <line x1='0' y1='-9' x2='0' y2='-7' />
-          <line x1='0' y1='7' x2='0' y2='9' />
-          <line x1='-9' y1='0' x2='-7' y2='0' />
-          <line x1='7' y1='0' x2='9' y2='0' />
-          <circle r='1.4' fill='#e0635e' stroke='none' />
-        </g>
-      );
-    case 'repos': // database cylinder
-      return (
-        <g {...stroke}>
-          <ellipse cx='0' cy='-5' rx='6.5' ry='2.6' />
-          <path d='M-6.5 -5 V5 a6.5 2.6 0 0 0 13 0 V-5' />
-          <path d='M-6.5 0 a6.5 2.6 0 0 0 13 0' />
-        </g>
-      );
-    case 'ai': // sparkle
-      return (
-        <g>
-          <path
-            d='M0 -8 C0.6 -2.6 2.6 -0.6 8 0 C2.6 0.6 0.6 2.6 0 8 C-0.6 2.6 -2.6 0.6 -8 0 C-2.6 -0.6 -0.6 -2.6 0 -8 Z'
-            fill='#e0635e'
-          />
-          <path d='M6.5 -7.5 C6.7 -5.8 7.3 -5.2 9 -5 C7.3 -4.8 6.7 -4.2 6.5 -2.5 C6.3 -4.2 5.7 -4.8 4 -5 C5.7 -5.2 6.3 -5.8 6.5 -7.5 Z' fill='#e0635e' />
-        </g>
-      );
-    case 'cdn': // globe
+    case 'delivery': // globe / network reach
       return (
         <g {...stroke}>
           <circle r='7' />
@@ -174,6 +126,42 @@ function ServiceIcon({ type }: { type: string }) {
           <line x1='-7' y1='0' x2='7' y2='0' />
           <path d='M-6 -3.6 H6' />
           <path d='M-6 3.6 H6' />
+        </g>
+      );
+    case 'transform': // convert / exchange arrows
+      return (
+        <g {...stroke}>
+          <path d='M-7 -3.5 H5' />
+          <path d='M2 -6.5 L5 -3.5 L2 -0.5' />
+          <path d='M7 3.5 H-5' />
+          <path d='M-2 0.5 L-5 3.5 L-2 6.5' />
+        </g>
+      );
+    case 'software': // code brackets
+      return (
+        <g {...stroke}>
+          <path d='M-3 -6.5 L-8 0 L-3 6.5' />
+          <path d='M3 -6.5 L8 0 L3 6.5' />
+        </g>
+      );
+    case 'community': // group of people
+      return (
+        <g {...stroke}>
+          <circle cx='0' cy='-3.5' r='2.8' />
+          <path d='M-5 6.5 a5 4.5 0 0 1 10 0' />
+          <circle cx='-7.5' cy='-1.5' r='2' />
+          <path d='M-9.5 6 a3.5 3 0 0 1 4 -2.4' />
+          <circle cx='7.5' cy='-1.5' r='2' />
+          <path d='M9.5 6 a3.5 3 0 0 0 -4 -2.4' />
+        </g>
+      );
+    case 'facilitation': // chat / guidance bubble
+      return (
+        <g {...stroke}>
+          <path d='M-7.5 -5.5 H7.5 a1.2 1.2 0 0 1 1.2 1.2 V2.5 a1.2 1.2 0 0 1 -1.2 1.2 H-1 L-4.5 7.5 V3.7 H-7.5 a1.2 1.2 0 0 1 -1.2 -1.2 V-4.3 a1.2 1.2 0 0 1 1.2 -1.2 Z' />
+          <circle cx='-3.5' cy='-1' r='0.9' fill='#e0635e' stroke='none' />
+          <circle cx='0' cy='-1' r='0.9' fill='#e0635e' stroke='none' />
+          <circle cx='3.5' cy='-1' r='0.9' fill='#e0635e' stroke='none' />
         </g>
       );
     default:
@@ -192,8 +180,8 @@ function NetworkIllustration() {
     >
       <title id='fabric-title'>FabAID service fabric</title>
       <desc id='fabric-desc'>
-        The FabAID core at the center, connected to the five services FabAID provides: Data
-        Federation, Data Access Point, Data Repositories, AI Agent, and CDN and Caching.
+        The FabAID core at the center, connected to the five pillars of the fabric: Data Delivery,
+        Data Transformation, Software, Community, and Facilitation.
       </desc>
       <defs>
         <linearGradient id='lg' x1='0' y1='0' x2='1' y2='1'>

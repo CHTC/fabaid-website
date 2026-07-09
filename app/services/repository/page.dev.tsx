@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     'Browse the data repositories integrated with the OSDF through FabAID.',
 };
 
-export default function Page() {
+function PageDev() {
   const repositories = getDataRepositories();
 
   return (

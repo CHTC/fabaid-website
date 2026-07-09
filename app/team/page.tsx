@@ -1,7 +1,7 @@
 import { Box, Container, Grid, Typography, Divider } from '@mui/material';
 import { LeaderCard, StaffCard } from "./_components"
 import React from 'react';
-import { getStaff } from '@/utils/staff';
+import { getStaff, byWeightThenName } from '@/utils/staff';
 import { PageHero } from '@/components/design';
 
 export default async function Page() {
@@ -20,7 +20,7 @@ export default async function Page() {
       (member) =>
         member.organizations.includes('fabaid') && member.status !== 'Past'
     )
-    .sort((a, b) => (a.weight || 0) - (b.weight || 0));
+    .sort(byWeightThenName);
   const pastStaff = team.filter(
     (member) =>
       member.organizations.includes('fabaid') && member.status === 'Past'
@@ -36,7 +36,7 @@ export default async function Page() {
       />
       <Container maxWidth={'lg'} sx={{ py: { xs: 6, md: 9 } }}>
         <Grid container justifyContent={'center'} gap={2}>
-          {staff.sort((a,b) => (a?.weight || 0) - (b?.weight || 0)).map((member, index) => {
+          {staff.map((member, index) => {
             return (
               <Grid
                 key={member.name}

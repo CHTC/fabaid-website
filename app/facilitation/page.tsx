@@ -14,10 +14,10 @@ import {
   colors,
   mono,
 } from '@/components/design';
-import { getStaff } from '@/utils/staff';
+import { getStaff, byWeightThenName } from '@/utils/staff';
 
 export const metadata: Metadata = {
-  title: 'Facilitation & Science School | FabAID',
+  title: 'Facilitation | FabAID',
   description:
     'FabAID facilitation helps researchers and campuses adopt the fabric and build lasting capability. As partners we work together to better service other new researchers and small campuses to do the same.',
 };
@@ -26,18 +26,15 @@ const SCIENCE_SCHOOL_IMAGE = '/images/general/madison_wi.jpeg';
 
 const PHASES = [
   {
-    marker: 'PHASE 01',
     title: 'Exploration',
     body: 'We learn your science and map workflows onto the fabric together — no commitment, no cost.',
   },
   {
-    marker: 'PHASE 02',
     title: 'Adoption',
     body: 'You work with us to port your workload, tune throughput, and teach your team the tools hands-on.',
   },
   {
-    marker: 'PHASE 03',
-    title: 'Ownership',
+    title: 'Independence',
     body: 'Your group runs independently — we stay on call as partners, using your feedback to improve our services.',
   },
 ];
@@ -51,18 +48,18 @@ export default async function Page() {
         member.is_facilitator === 1 &&
         member.status !== 'Past'
     )
-    .sort((a, b) => (a.weight || 0) - (b.weight || 0));
+    .sort(byWeightThenName);
 
   return (
     <>
       <PageHero
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Facilitation' }]}
-        kicker='Facilitation & Science School'
+        kicker={" "}
         title={
           <>
             Researchers as
             <br />
-            partners, not tickets.
+            partners.
           </>
         }
         lead='FabAID facilitation helps researchers and campuses adopt the fabric and build lasting capability. As partners we work together to better service new researchers and small campuses to do the same.'
@@ -81,7 +78,7 @@ export default async function Page() {
 
       <Box component='section' sx={{ py: { xs: 7, md: 13 } }}>
         <Container maxWidth='lg'>
-          <SectionHead kicker='The facilitation model' title='Exploration → Adoption → Ownership.' />
+          <SectionHead kicker='The facilitation model' title='Exploration → Adoption → Independence.' />
           <Steps steps={PHASES} />
         </Container>
       </Box>
@@ -108,7 +105,7 @@ export default async function Page() {
               />
             </Box>
             <Box>
-              <Kicker>Successor to the OSG User School</Kicker>
+              <Kicker>Learn with us</Kicker>
               <Typography variant='h2' component='h2'>The Data-Intensive Science School.</Typography>
               <Typography sx={{ mt: 1.75, color: colors.muted, fontSize: { xs: '1.1rem', md: '1.35rem' }, lineHeight: 1.55 }}>
                 A week-long summer school in Madison covering the principles, tools, and
@@ -117,8 +114,8 @@ export default async function Page() {
               </Typography>
               <CheckList
                 items={[
-                  'Open to graduate students, postdocs and research staff nationwide.',
-                  'Travel support available for accepted participants.',
+                  'Open to graduate students, postdocs and facilitators nationwide.',
+                  'Travel support available for participants.',
                   'Held each summer in Madison, Wisconsin.',
                 ]}
               />
@@ -130,7 +127,12 @@ export default async function Page() {
       {facilitators.length > 0 && (
         <Box component='section' sx={{ py: { xs: 7, md: 13 } }}>
           <Container maxWidth='lg'>
-            <SectionHead center kicker='The team' title='Meet your facilitators.' />
+            <SectionHead
+              center
+              kicker='The team'
+              title='Meet your facilitators.'
+              lead='Applying decades of knowledge to your computing problems.'
+            />
             <Box
               sx={{
                 display: 'grid',

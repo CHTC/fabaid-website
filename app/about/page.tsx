@@ -21,13 +21,75 @@ export const metadata: Metadata = {
 };
 
 const PARTNERS = [
-  { name: 'CHTC', body: 'Center for High Throughput Computing — operator of the fabric.', href: 'https://chtc.wisc.edu', logo: '/images/logos/chtc.png' },
-  { name: 'Morgridge Institute', body: 'Research institute dedicated to investing in the HTC vision.', href: 'https://morgridge.org', logo: '/images/logos/morgridge.png' },
-  { name: 'PATh', body: 'NSF-funded partnership advancing throughput computing nationally.', href: 'https://path-cc.io', logo: '/images/logos/path.png' },
-  { name: 'OSG Consortium', body: 'Distributed HTC for the national science community.', href: 'https://osg-htc.org', logo: '/images/logos/osg.svg' },
-  { name: 'Pelican', body: 'Open-source software for federating data repositories.', href: 'https://pelicanplatform.org', logo: '/images/logos/pelican.png' },
-  { name: 'HTCondor', body: 'Open-source High Throughput Computing software.', href: 'https://htcondor.org', logo: '/images/logos/htcondor.png' },
+  { name: 'OSG', body: 'Distributed High Throughput Computing for the national science community.', href: 'https://osg-htc.org', logo: '/images/logos/osg.svg' },
+  { name: 'CHTC', body: 'The Center for High Throughput Computing — operator of the fabric.', href: 'https://chtc.wisc.edu', logo: '/images/logos/chtc.png' },
 ];
+
+const PROJECTS = [
+  { name: 'Pelican', body: 'Open-source software for federating and delivering data across repositories.', href: 'https://pelicanplatform.org', logo: '/images/logos/pelican.png' },
+  { name: 'HTCondor', body: 'Open-source High Throughput Computing software that schedules workloads at scale.', href: 'https://htcondor.org', logo: '/images/logos/htcondor.png' },
+];
+
+const INSTITUTIONS = [
+  { name: 'Morgridge Institute for Research', href: 'https://morgridge.org', logo: '/images/logos/morgridge.png' },
+  { name: 'University of Wisconsin–Madison', href: 'https://www.wisc.edu', logo: '/images/logos/uw-madison.png' },
+  { name: 'UC San Diego', href: 'https://ucsd.edu', logo: '/images/logos/ucsd.png' },
+  { name: 'University of Nebraska–Lincoln', href: 'https://www.unl.edu', logo: '/images/logos/unl.png' },
+  { name: 'Purdue University', href: 'https://www.purdue.edu', logo: '/images/logos/purdue.png' },
+  { name: 'Princeton University', href: 'https://www.princeton.edu', logo: '/images/logos/princeton.png' },
+];
+
+function GroupLabel({ children, sx }: { children: React.ReactNode; sx?: object }) {
+  return (
+    <Typography
+      component='h3'
+      sx={{
+        fontWeight: 700,
+        fontSize: '0.78rem',
+        letterSpacing: '0.16em',
+        textTransform: 'uppercase',
+        color: colors.red,
+        mb: 2.5,
+        ...sx,
+      }}
+    >
+      {children}
+    </Typography>
+  );
+}
+
+function BrandCard({ name, body, href, logo }: { name: string; body: string; href: string; logo: string }) {
+  return (
+    <Link
+      href={href}
+      target='_blank'
+      rel='noopener'
+      underline='none'
+      sx={{ ...cardSx, ...cardHoverSx, color: 'inherit', display: 'flex', flexDirection: 'column', position: 'relative' }}
+    >
+      <Launch
+        sx={{ position: 'absolute', top: 18, right: 18, fontSize: 18, color: colors.muted2 }}
+        aria-hidden='true'
+      />
+      <Typography component='b' variant='h6' sx={{ fontSize: '1.15rem', pr: 3 }}>
+        {name}
+      </Typography>
+      <Typography sx={{ color: colors.muted, fontSize: '0.95rem', mt: 0.75 }}>{body}</Typography>
+      <Box sx={{ mt: 'auto', pt: 3, width: '55%', alignSelf: 'flex-start' }}>
+        <Box sx={{ position: 'relative', height: 44, width: '100%' }}>
+          <ExportedImage
+            src={logo}
+            alt=''
+            aria-hidden='true'
+            fill
+            style={{ objectFit: 'contain', objectPosition: 'left center' }}
+            sizes='200px'
+          />
+        </Box>
+      </Box>
+    </Link>
+  );
+}
 
 export default function Page() {
   return (
@@ -50,16 +112,10 @@ export default function Page() {
           <Split>
             <Box>
               <Kicker>Our mission</Kicker>
-              <Typography variant='h2' component='h2'>Bring the power of the fabric to all fields of research.</Typography>
+              <Typography variant='h2' component='h2'>A fabric to integrate the nations data and compute.</Typography>
               <Typography sx={{ mt: 1.75, color: colors.muted, fontSize: { xs: '1.1rem', md: '1.35rem' }, lineHeight: 1.55 }}>
                 We believe access to data-intensive computing should be open, and that the future
-                of the fabric should be shaped by insight from every discipline — from astrophysics
-                to the humanities.
-              </Typography>
-              <Typography sx={{ mt: 2, color: colors.muted }}>
-                FabAID extends CHTC&apos;s long tradition of High Throughput Computing into the era
-                of large datasets and AI, federating storage and compute into a single, welcoming
-                service layer.
+                of the fabric should be shaped by insight from every discipline and campus.
               </Typography>
             </Box>
             <Box
@@ -84,43 +140,58 @@ export default function Page() {
         </Container>
       </Box>
 
-      <Box component='section' sx={{ bgcolor: colors.paper2, py: { xs: 7, md: 13 } }}>
+      <Box
+        component='section'
+        id='partners'
+        sx={{ bgcolor: colors.paper2, py: { xs: 7, md: 13 }, scrollMarginTop: '80px' }}
+      >
         <Container maxWidth='lg'>
-          <SectionHead
-            center
-            kicker='Partners & projects'
-            title='Home to, and supported by, a national community.'
-          />
-          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: 'repeat(3, 1fr)' }, gap: 3 }}>
+          <SectionHead center kicker=" " title='Home to a national community.' />
+
+          <GroupLabel>Partners</GroupLabel>
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 3 }}>
             {PARTNERS.map((p) => (
+              <BrandCard key={p.name} {...p} />
+            ))}
+          </Box>
+
+          <GroupLabel sx={{ mt: { xs: 5, md: 7 } }}>Projects</GroupLabel>
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 3 }}>
+            {PROJECTS.map((p) => (
+              <BrandCard key={p.name} {...p} />
+            ))}
+          </Box>
+
+          <GroupLabel sx={{ mt: { xs: 5, md: 7 } }}>Institutions</GroupLabel>
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: 'repeat(3, 1fr)' },
+              gap: 3,
+            }}
+          >
+            {INSTITUTIONS.map((inst) => (
               <Link
-                key={p.name}
-                href={p.href}
-                target={p.href.startsWith('http') ? '_blank' : undefined}
-                rel={p.href.startsWith('http') ? 'noopener' : undefined}
+                key={inst.name}
+                href={inst.href}
+                target='_blank'
+                rel='noopener'
                 underline='none'
-                sx={{ ...cardSx, ...cardHoverSx, color: 'inherit', display: 'flex', flexDirection: 'column', position: 'relative' }}
+                sx={{
+                  ...cardSx,
+                  ...cardHoverSx,
+                  color: 'inherit',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: 1.5,
+                  p: 2.5,
+                }}
               >
-                <Launch
-                  sx={{ position: 'absolute', top: 18, right: 18, fontSize: 18, color: colors.muted2 }}
-                  aria-hidden='true'
-                />
-                <Typography component='b' variant='h6' sx={{ fontSize: '1.15rem', pr: 3 }}>
-                  {p.name}
+                <Typography component='b' sx={{ fontSize: '1rem', fontWeight: 600, lineHeight: 1.3 }}>
+                  {inst.name}
                 </Typography>
-                <Typography sx={{ color: colors.muted, fontSize: '0.95rem', mt: 0.75 }}>{p.body}</Typography>
-                <Box sx={{ mt: 'auto', pt: 3, width: '70%', alignSelf: 'flex-start' }}>
-                  <Box sx={{ position: 'relative', height: 44, width: '100%' }}>
-                    <ExportedImage
-                      src={p.logo}
-                      alt=''
-                      aria-hidden='true'
-                      fill
-                      style={{ objectFit: 'contain', objectPosition: 'left center' }}
-                      sizes='200px'
-                    />
-                  </Box>
-                </Box>
+                <Launch sx={{ flex: 'none', fontSize: 18, color: colors.muted2 }} aria-hidden='true' />
               </Link>
             ))}
           </Box>
@@ -137,8 +208,7 @@ export default function Page() {
           </Box>
           <Typography sx={{ color: colors.onInkLead, maxWidth: '60ch', fontSize: { xs: '1.1rem', md: '1.35rem' }, lineHeight: 1.55 }}>
             FabAID is supported by the NSF, operated by CHTC at the University of Wisconsin–Madison,
-            in partnership with the Morgridge Institute for Research, under Cooperative Agreement
-            OAC-2331480.
+            in partnership with the Morgridge Institute for Research, under Cooperative Agreement OAC-2609485.
           </Typography>
         </Container>
       </Box>

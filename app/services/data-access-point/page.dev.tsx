@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     'Place and manage data-intensive workloads on the fabric with HTCondor-powered access points.',
 };
 
-export default function Page() {
+function PageDev() {
   return (
     <>
       <PageHero

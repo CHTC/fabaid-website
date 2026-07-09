@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     'An LLM assistant for moving data and running workflows on the fabric, built on OpenWebUI and Ollama.',
 };
 
-export default function Page() {
+function PageDev() {
   return (
     <>
       <PageHero

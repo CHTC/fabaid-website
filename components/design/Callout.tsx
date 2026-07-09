@@ -15,9 +15,9 @@ export interface CalloutProps {
  * in the design. Defaults to the shared FabAID copy.
  */
 export default function Callout({
-  kicker = 'Get involved',
-  title = 'Bring your data onto the fabric.',
-  body = 'Request an access point and connect your first repository in an afternoon — facilitation is free.',
+  kicker = 'Move your Science Forward',
+  title = 'Connect your data to the Fabric',
+  body,
 }: CalloutProps) {
   return (
     <Box component='section' sx={{ py: { xs: 7, md: 13 } }}>
@@ -40,7 +40,9 @@ export default function Callout({
             <Typography variant='h2' component='h2' sx={{ color: '#fff', maxWidth: '18ch' }}>
               {title}
             </Typography>
-            <Typography sx={{ color: colors.onInkLead, mt: 1, mb: 0 }}>{body}</Typography>
+            {body && (
+              <Typography sx={{ color: colors.onInkLead, mt: 1, mb: 0 }}>{body}</Typography>
+            )}
           </Box>
           <Box sx={{ display: 'flex', gap: 1.75, flexWrap: 'wrap' }}>
             <Button

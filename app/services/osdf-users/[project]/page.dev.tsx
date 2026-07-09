@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return { title: `${project.name} | OSDF Projects | FabAID`, description };
 }
 
-export default async function Page({ params }: PageProps) {
+async function PageDev({ params }: PageProps) {
   const { project: name } = await params;
   const project = await getOsdfProject(name);
 

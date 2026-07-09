@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, IconButton, Link } from '@mui/material';
+import { Box, Button, Container, IconButton, Link } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Construction from '@mui/icons-material/Construction';
@@ -18,13 +18,12 @@ interface NavLink {
 }
 
 const NAV: NavLink[] = [
-  { label: 'Data Federation', href: '/data-federation/' },
-  { label: 'Repositories', href: '/repository/' },
   { label: 'Facilitation', href: '/facilitation/' },
-  { label: 'Data Access Point', href: '/data-access-point/', construction: true },
-  { label: 'AI Agent', href: '/ai-agent/', construction: true },
   { label: 'Team', href: '/team/' },
   { label: 'About', href: '/about/' },
+  { label: 'Services', href: '/services/', construction: true },
+  { label: 'Software', href: '/software/', construction: true },
+  { label: 'Community', href: '/community/', construction: true },
 ];
 
 const WIDE = { maxWidth: 1340, mx: 'auto' } as const;
@@ -77,15 +76,6 @@ export default function SiteHeader() {
               Operated by CHTC
             </Link>
             <Box sx={{ flex: 1 }} />
-            <Link
-              href='https://status.osg-htc.org/'
-              target='_blank'
-              rel='noopener'
-              underline='none'
-              sx={{ color: '#fff !important' }}
-            >
-              Status
-            </Link>
           </Box>
         </Container>
       </Box>
@@ -155,25 +145,18 @@ export default function SiteHeader() {
             </Box>
 
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, flex: 'none', ml: 'auto' }}>
-              <Link
-                href='/impact/'
-                underline='none'
+              <Button
+                href='mailto:contact@fabaid.io'
+                variant='contained'
+                color='primary'
                 sx={{
-                  display: { xs: 'none', xl: 'inline-flex' },
-                  alignItems: 'center',
-                  fontFamily: mono,
-                  fontSize: '0.72rem',
-                  letterSpacing: '0.04em',
-                  border: `1.5px solid ${colors.red}`,
-                  color: colors.red,
+                  display: { xs: 'none', lg: 'inline-flex' },
                   borderRadius: '999px',
-                  px: 1.5,
-                  py: 0.6,
-                  bgcolor: colors.red050,
+                  whiteSpace: 'nowrap',
                 }}
               >
-                For funders / impact
-              </Link>
+                Contact us&nbsp;→
+              </Button>
               <IconButton
                 aria-label='Toggle menu'
                 onClick={() => setOpen((v) => !v)}
@@ -220,6 +203,15 @@ export default function SiteHeader() {
                   )}
                 </Link>
               ))}
+              <Button
+                href='mailto:contact@fabaid.io'
+                variant='contained'
+                color='primary'
+                onClick={() => setOpen(false)}
+                sx={{ mt: 2, borderRadius: '999px', alignSelf: 'flex-start' }}
+              >
+                Contact us&nbsp;→
+              </Button>
             </Box>
           )}
         </Container>

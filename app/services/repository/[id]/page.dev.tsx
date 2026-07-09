@@ -74,7 +74,7 @@ function DetailItem({
   );
 }
 
-export default async function Page({ params }: PageProps) {
+async function PageDev({ params }: PageProps) {
   const { id } = await params;
   const repository = getDataRepository(id);
 
