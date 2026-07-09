@@ -43,7 +43,7 @@ export function LeaderCard({
           sx={{
             borderRadius: '1.2rem',
             p: 1.5,
-            backgroundImage: `url(${fabricTexture})`,
+            backgroundImage: `linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.85)), url(${fabricTexture})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}>

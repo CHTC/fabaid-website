@@ -21,7 +21,7 @@ export function StaffCard({ name, title, image, institution }: Staff) {
       <Box
         sx={{
           p: '6px',
-          backgroundImage: `url(${fabricTexture})`,
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.85)), url(${fabricTexture})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderRadius: '1rem',
