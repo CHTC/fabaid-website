@@ -61,3 +61,6 @@ Run `pnpm run dev`.
 
 This will be the fastest if you aren't on linux.
 
+## Claude
+
+Read .ai/instructions from https://github.com/CHTC/nextjs-template/blob/main/.ai/instructions.md before making edits.
