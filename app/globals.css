@@ -1,6 +1,10 @@
 /* IBM Plex Mono — used for design-system kickers, eyebrows, and metric labels. */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 .MuiAlert-message {
   font-size: .875rem; /* Adjust the font size as needed */
 }

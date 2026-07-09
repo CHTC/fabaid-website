@@ -27,7 +27,7 @@ const SERVICES = [
     num: '01',
     icon: <Storage />,
     title: 'Origin',
-    body: 'Bring your own data source — connect existing storage over S3, Globus, or POSIX. No migration required.',
+    body: 'Connect your data to the fabric — compatible with your existing storage over S3, Globus, or POSIX. No migration required.',
     tag: 'powered by Pelican ↗',
     tagLogo: PELICAN_LOGO,
     href: '/data-federation/',
@@ -36,7 +36,7 @@ const SERVICES = [
     num: '02',
     icon: <ViewStream />,
     title: 'Data Access Point',
-    body: 'Place and manage data-intensive workloads next to the data, with throughput-optimized scheduling.',
+    body: 'Place and manage data-intensive workloads next to the data.',
     tag: 'built on HTCondor ↗',
     tagLogo: HTCONDOR_LOGO,
     href: '/data-access-point/',
@@ -45,7 +45,7 @@ const SERVICES = [
     num: '03',
     icon: <Inventory2 />,
     title: 'Data Repositories',
-    body: 'Browse the data repositories integrated with the OSDF — their datasets, access, and namespaces.',
+    body: 'Browse the data repositories integrated with the OSDF.',
     href: '/repository/',
   },
   {
@@ -58,7 +58,7 @@ const SERVICES = [
   {
     num: '05',
     icon: <Public />,
-    title: 'CDN & caching',
+    title: 'Caching',
     body: 'Caches positioned near most U.S. institutions keep hot data close to the compute.',
     tag: 'powered by Pelican · part of OSDF',
     tagLogo: PELICAN_LOGO,
@@ -68,7 +68,7 @@ const SERVICES = [
 
 export function ServicesGrid() {
   return (
-    <Box component='section' sx={{ py: { xs: 7, md: 13 } }}>
+    <Box component='section' id='services' sx={{ py: { xs: 7, md: 13 }, scrollMarginTop: '80px' }}>
       <Container maxWidth='lg'>
         <SectionHead
           center

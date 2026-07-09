@@ -80,7 +80,7 @@ export default function HomeHero() {
                 variant='contained'
                 color='primary'
                 size='large'
-                href='/data-access-point/'
+                href='#services'
                 sx={{ borderRadius: '999px' }}
               >
                 Explore the services&nbsp;↓
