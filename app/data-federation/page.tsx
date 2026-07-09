@@ -32,7 +32,7 @@ const STEPS = [
   {
     marker: 'STEP 01',
     title: 'Register an Origin',
-    body: 'Connect your storage endpoint. Pelican advertises your namespace to the federation.',
+    body: 'Connect your existing storage. Pelican advertises your namespace to the federation.',
   },
   {
     marker: 'STEP 02',
@@ -42,7 +42,7 @@ const STEPS = [
   {
     marker: 'STEP 03',
     title: 'Workloads read locally',
-    body: 'Jobs at any Access Point read from the nearest cache at line rate — no manual staging.',
+    body: 'Jobs at any Access Point read from the nearest cache — no manual staging.',
   },
 ];
 
@@ -120,7 +120,7 @@ export default async function Page() {
 
       <Box component='section' sx={{ bgcolor: colors.paper2, py: { xs: 7, md: 13 } }}>
         <Container maxWidth='lg'>
-          <SectionHead center kicker='How it works' title='From your repository to the cache, in three hops.' />
+          <SectionHead center kicker='How it works' title='Your data on a National Fabric, in three steps.' />
           <Steps steps={STEPS} />
         </Container>
       </Box>
@@ -159,22 +159,6 @@ export default async function Page() {
           </Container>
         </Box>
       )}
-
-      <Box component='section' sx={{ bgcolor: colors.paper2, py: { xs: 7, md: 13 } }}>
-        <Container maxWidth='lg' sx={{ textAlign: 'center' }}>
-          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Kicker>Built on Pelican</Kicker>
-          </Box>
-          <Typography variant='h2' component='h2' sx={{ maxWidth: '20ch', mx: 'auto', mb: 3.5 }}>
-            An open platform for federating data repositories.
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 1.5, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <PoweredByChip label='Pelican ↗' href='https://pelicanplatform.org' />
-            <PoweredByChip label='OSDF caches' />
-            <PoweredByChip label='Namespace registry' />
-          </Box>
-        </Container>
-      </Box>
 
       <Callout />
     </>

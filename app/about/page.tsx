@@ -22,11 +22,11 @@ export const metadata: Metadata = {
 
 const PARTNERS = [
   { name: 'CHTC', body: 'Center for High Throughput Computing — operator of the fabric.', href: 'https://chtc.wisc.edu', logo: '/images/logos/chtc.png' },
-  { name: 'Morgridge Institute', body: 'Biomedical research partner investing in the HTC vision.', href: 'https://morgridge.org', logo: '/images/logos/morgridge.png' },
+  { name: 'Morgridge Institute', body: 'Research institute dedicated to investing in the HTC vision.', href: 'https://morgridge.org', logo: '/images/logos/morgridge.png' },
   { name: 'PATh', body: 'NSF-funded partnership advancing throughput computing nationally.', href: 'https://path-cc.io', logo: '/images/logos/path.png' },
   { name: 'OSG Consortium', body: 'Distributed HTC for the national science community.', href: 'https://osg-htc.org', logo: '/images/logos/osg.svg' },
-  { name: 'Pelican', body: 'Open platform for federating data repositories.', href: 'https://pelicanplatform.org', logo: '/images/logos/pelican.png' },
-  { name: 'HTCondor', body: 'Open-source High Throughput Computing software at the heart of the fabric.', href: 'https://htcondor.org', logo: '/images/logos/htcondor.png' },
+  { name: 'Pelican', body: 'Open-source software for federating data repositories.', href: 'https://pelicanplatform.org', logo: '/images/logos/pelican.png' },
+  { name: 'HTCondor', body: 'Open-source High Throughput Computing software.', href: 'https://htcondor.org', logo: '/images/logos/htcondor.png' },
 ];
 
 export default function Page() {

@@ -19,7 +19,7 @@ import { getStaff } from '@/utils/staff';
 export const metadata: Metadata = {
   title: 'Facilitation & Science School | FabAID',
   description:
-    'FabAID facilitation helps researchers adopt the fabric, and the annual Data-Intensive Science School trains the field.',
+    'FabAID facilitation helps researchers and campuses adopt the fabric and build lasting capability. As partners we work together to better service other new researchers and small campuses to do the same.',
 };
 
 const SCIENCE_SCHOOL_IMAGE = '/images/general/madison_wi.jpeg';
@@ -33,12 +33,12 @@ const PHASES = [
   {
     marker: 'PHASE 02',
     title: 'Adoption',
-    body: 'We port a real workload, tune throughput, and teach your team the tools hands-on.',
+    body: 'You work with us to port your workload, tune throughput, and teach your team the tools hands-on.',
   },
   {
     marker: 'PHASE 03',
     title: 'Ownership',
-    body: 'Your group runs independently — we stay on call as partners, not gatekeepers.',
+    body: 'Your group runs independently — we stay on call as partners, using your feedback to improve our services.',
   },
 ];
 
@@ -65,7 +65,7 @@ export default async function Page() {
             partners, not tickets.
           </>
         }
-        lead='Our facilitation team helps research groups adopt the fabric and build lasting capability — and our annual school trains the next generation of data-intensive scientists.'
+        lead='FabAID facilitation helps researchers and campuses adopt the fabric and build lasting capability. As partners we work together to better service new researchers and small campuses to do the same.'
         action={
           <Button
             variant='contained'
