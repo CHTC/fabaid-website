@@ -17,12 +17,12 @@ import {
 
 export const metadata: Metadata = {
   title: 'About | FabAID',
-  description: 'FabAID is an open data-services fabric operated by CHTC at UW–Madison, funded by the NSF.',
+  description: 'FabAID is an open data-services fabric led by CHTC, funded by the NSF.',
 };
 
 const PARTNERS = [
-  { name: 'OSG', body: 'Distributed High Throughput Computing for the national science community.', href: 'https://osg-htc.org', logo: '/images/logos/osg.svg' },
-  { name: 'CHTC', body: 'The Center for High Throughput Computing — operator of the fabric.', href: 'https://chtc.wisc.edu', logo: '/images/logos/chtc.png' },
+  { name: 'OSG Consortium', body: 'Advancing Open Science through High Throughput Computing - running the Fabric of Services.', href: 'https://osg-htc.org', logo: '/images/logos/osg.svg' },
+  { name: 'CHTC', body: 'The Center for High Throughput Computing — leading the FabAID project.', href: 'https://chtc.wisc.edu', logo: '/images/logos/chtc.png' },
 ];
 
 const PROJECTS = [
