@@ -99,7 +99,7 @@ export default function Page() {
         kicker='About FabAID'
         title={
           <>
-            A fabric shaped by
+            Data-services shaped by
             <br />
             every field of research.
           </>
