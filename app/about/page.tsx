@@ -104,7 +104,7 @@ export default function Page() {
             every field of research.
           </>
         }
-        lead='FabAID is an open data-services initiative operated by the Center for High Throughput Computing, building on two decades of distributed computing leadership at UW–Madison.'
+        lead='FabAID is an open data-services initiative operated by the Center for High Throughput Computing, building on decades of distributed computing leadership at UW–Madison.'
       />
 
       <Box component='section' sx={{ py: { xs: 7, md: 13 } }}>
