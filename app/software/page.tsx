@@ -63,13 +63,16 @@ export default function Page() {
           <Split>
             <Box>
               <Kicker>The data platform</Kicker>
-              <Typography variant='h2' component='h2'>Pelican moves open data to where science happens.</Typography>
+              <Typography variant='h2' component='h2'>Pelican moves data to where science happens.</Typography>
               <Typography sx={{ mt: 1.75, color: colors.muted, fontSize: { xs: '1.1rem', md: '1.35rem' }, lineHeight: 1.55 }}>
                 Pelican federates data repositories into a single namespace and delivers their
                 objects — through a national network of caches — right next to the compute that
-                needs them. It is the software foundation of the Open Science Data Federation.
+                needs them. It is the software foundation of the{' '}
+                <Link href='https://osg-htc.org/osdf' target='_blank' rel='noopener' sx={{ color: colors.red, fontWeight: 600 }}>
+                  Open Science Data Federation
+                </Link>.
                 In FabAID, we are evolving Pelican to meet the demands of AI-driven science: tighter ecosystem integration,
-                richer metadata and discovery, lightweight ways to connect smaller repositories, and improved staging management.
+                metadata extraction and discovery, lightweight ways to connect smaller repositories, and improved staging management.
               </Typography>
               <CheckList
                 items={[

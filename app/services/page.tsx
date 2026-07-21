@@ -54,7 +54,7 @@ export default function Page() {
             data services.
           </>
         }
-        lead='FabAID operates a fabric of services that accelerate data-intensive and AI-driven science. Two work together at its core: the Open Science Data Federation moves data to where it is needed, and Access Points let researchers run workloads on national capacity. Every service is hosted and ready to use — no infrastructure to stand up.'
+        lead='FabAID builds a fabric of services that accelerate data-intensive and AI-driven science. Two work together at its core: the Open Science Data Federation moves data to where it is needed, and Access Points let researchers run workloads on national capacity. Every service is hosted and ready to use: no local infrastructure needed to try it out.'
       />
 
       {/* Intro / excerpt */}
@@ -63,7 +63,7 @@ export default function Page() {
           <Typography sx={{ color: colors.muted, fontSize: { xs: '1.15rem', md: '1.4rem' }, lineHeight: 1.6 }}>
             Research moves faster when data and computing are tied together into a coherent fabric. The
             fabric connects the storage a project already has to computing capacity across the
-            nation&apos;s campuses and labs. A scientist can bring their data and research,
+            nation&apos;s campuses and labs: a scientist can bring their data and research,
             and leave the plumbing to us.
           </Typography>
         </Container>
@@ -77,7 +77,11 @@ export default function Page() {
               <Kicker>Data</Kicker>
               <Typography variant='h2' component='h2'>The Open Science Data Federation.</Typography>
               <Typography sx={{ mt: 1.75, color: colors.muted, fontSize: { xs: '1.1rem', md: '1.35rem' }, lineHeight: 1.55 }}>
-                The OSDF lets an organization connect its existing storage to the fabric and have its
+                The{' '}
+                <Link href='https://osg-htc.org/osdf' target='_blank' rel='noopener' sx={{ color: colors.red, fontWeight: 600 }}>
+                  OSDF
+                </Link>{' '}
+                lets an organization connect its existing storage to the fabric and have its
                 data delivered, on demand, wherever computing happens.  OSDF avoids human-managed copying
                 and allows organizations to manage authorization control of the data.
               </Typography>
@@ -101,14 +105,14 @@ export default function Page() {
       <Box component='section' sx={{ py: { xs: 7, md: 13 } }}>
         <Container maxWidth='lg'>
           <Split reverse>
-            <LogoPanel src='/images/logos/htcondor.png' alt='HTCondor-powered Access Points' />
+            <LogoPanel src='/images/logos/ospool.png' alt='Access Points on the OSPool' />
             <Box>
               <Kicker>Compute &amp; workflows</Kicker>
               <Typography variant='h2' component='h2'>FabAID Access Points to run on national capacity.</Typography>
               <Typography sx={{ mt: 1.75, color: colors.muted, fontSize: { xs: '1.1rem', md: '1.35rem' }, lineHeight: 1.55 }}>
                 An Access Point is a researcher&apos;s home base on the fabric: a place to submit,
-                manage, and scale data-intensive and AI workloads across compute capacity — from a
-                single campus cluster to the nation&apos;s largest pools.
+                manage, and scale data-intensive and AI workloads across compute capacity.  Grow from a
+                single campus cluster to the nation&apos;s largest pools!
               </Typography>
               <CheckList
                 items={[
@@ -118,7 +122,7 @@ export default function Page() {
                 ]}
               />
               <Box sx={{ mt: 3.25, display: 'flex', gap: 1.25, flexWrap: 'wrap' }}>
-                <PoweredByChip label='HTCondor' href='https://htcondor.org' logo='/images/logos/htcondor_small.svg' />
+                <PoweredByChip label='OSPool' href='https://osg-htc.org/ospool' logo='/images/logos/ospool.png' />
               </Box>
             </Box>
           </Split>
@@ -136,9 +140,9 @@ export default function Page() {
           </Box>
           <Typography sx={{ color: colors.onInkLead, maxWidth: '62ch', fontSize: { xs: '1.1rem', md: '1.35rem' }, lineHeight: 1.55 }}>
             FabAID runs these services for you, so campuses and projects with limited staff can use
-            them while having minimal operational footprint. They are built on the same
-            open-source platforms &mdash; the Pelican Platform and the HTCondor Software Suite &mdash;
-            that FabAID develops in the open - you can always deploy your own!
+            them while having minimal operational footprint. The underlying technologies are the
+            open-source platforms - the Pelican Platform and the HTCondor Software Suite -
+            developed by the Center for High Throughput Computing.
           </Typography>
           <Box sx={{ mt: 3.5 }}>
             <Link

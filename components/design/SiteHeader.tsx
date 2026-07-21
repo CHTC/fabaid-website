@@ -21,9 +21,9 @@ const NAV: NavLink[] = [
   { label: 'Facilitation', href: '/facilitation/' },
   { label: 'Team', href: '/team/' },
   { label: 'About', href: '/about/' },
-  { label: 'Services', href: '/services/', construction: true },
-  { label: 'Software', href: '/software/', construction: true },
-  { label: 'Community', href: '/community/', construction: true },
+  { label: 'Services', href: '/services/' },
+  { label: 'Software', href: '/software/' },
+  { label: 'Community', href: '/community/' },
 ];
 
 const WIDE = { maxWidth: 1340, mx: 'auto' } as const;
