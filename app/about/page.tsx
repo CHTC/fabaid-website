@@ -112,7 +112,7 @@ export default function Page() {
           <Split>
             <Box>
               <Kicker>Our mission</Kicker>
-              <Typography variant='h2' component='h2'>A fabric to integrate the nations data and compute.</Typography>
+              <Typography variant='h2' component='h2'>A fabric to integrate the nation's data and compute.</Typography>
               <Typography sx={{ mt: 1.75, color: colors.muted, fontSize: { xs: '1.1rem', md: '1.35rem' }, lineHeight: 1.55 }}>
                 We believe access to data-intensive computing should be open, and that the future
                 of the fabric should be shaped by insight from every discipline and campus.
