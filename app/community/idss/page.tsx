@@ -47,7 +47,7 @@ interface Presentation {
 const PRESENTATIONS: Presentation[] = [
   {
     session: 'Category I',
-    title: 'FabAID: a fabric for data-intensive and AI-driven science',
+    title: 'FabAID: A fabric for data-intensive and AI-driven science',
     presenter: 'Brian Bockelman',
     org: 'Morgridge Institute for Research & CHTC',
     abstract:
@@ -57,13 +57,41 @@ const PRESENTATIONS: Presentation[] = [
   },
   {
      session: 'Category I',
-     title: 'Category I: National Data Platform',
+     title: 'National Data Platform',
      presenter: 'Ilkay Altintas',
      org: 'University of California, San Diego',
      abstract: 'A Federated National AI-Ready Data Ecosystem for Discovery, Innovation, Education, and Workforce Development',
      tags: ['Category I', 'National Data Platform'],
      slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/Altintas-NDP-IDSS-KickOff-21July2026.pdf',
   },
+  {
+    session: 'Category II',
+    title: 'National Science Data Fabric',
+    presenter: 'Michaela Taufer',
+    org: 'University of Tennessee, Knoxville',
+    abstract: 'Every Scientist Should Be Able to Collaborate with Every Scientific Facility and Every AI: A National Digital Backbone for Autonomous Scientific Discovery',
+    tags: ['Category II', 'NSDF'],
+    slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/NSDF.pdf',
+  },
+  {
+    session: 'Category II',
+    title: 'MESA: Multidisciplinary Environment for Scientific Advancement',
+    presenter: 'Tyson L. Swetnam',
+    org: 'University of New Mexico',
+    abstract: 'Building a shared, open-source platform in which scientific data from many fields are automatically described, organized, and connected.',
+    tags: ['Category II', 'MESA'],
+    slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/MESA.pdf',
+  },
+  {
+    session: 'Category II',
+    title: 'BRIDGE National Center',
+    presenter: 'Chen Li',
+    org: 'University of California, Berkeley',
+    abstract: 'A National Center to Democratize Multi-Disciplinary Data Science and AI',
+    tags: ['Category II', 'BRIDGE'],
+    slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/BRIDGE.pdf',
+
+  }
 ];
 
 /** Group presentations by session, preserving first-seen order. */
@@ -211,7 +239,7 @@ export default function Page() {
             together.
           </>
         }
-        lead='In July 2026, NSF hosted a virtual kickoff meeting series for the Integrated Data Systems & Services (IDSS) program — where the newly funded projects introduce their work.'
+        lead='In July 2026, NSF hosted a virtual kickoff meeting series for the Integrated Data Systems & Services (IDSS) program where the newly funded projects introduced their work.'
         action={
           <Button
             variant='contained'
@@ -220,7 +248,7 @@ export default function Page() {
             href={SLIDES_CONTACT}
             sx={{ borderRadius: '999px' }}
           >
-            Presenting? Send your slides&nbsp;→
+            Presented? Send your slides&nbsp;→
           </Button>
         }
       />
