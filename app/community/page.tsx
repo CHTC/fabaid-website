@@ -210,6 +210,47 @@ export default function Page() {
         </Container>
       </Box>
 
+      {/* IDSS Kickoff Workshop */}
+      <Box component='section' sx={{ py: { xs: 7, md: 12 } }}>
+        <Container maxWidth='lg'>
+          <Link
+            href='/community/idss/'
+            underline='none'
+            sx={{
+              ...cardSx,
+              ...cardHoverSx,
+              color: 'inherit',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: 3,
+              flexWrap: 'wrap',
+              p: { xs: 3.5, md: 5 },
+              '&:hover .card-arrow': { transform: 'translateX(4px)' },
+            }}
+          >
+            <Box>
+              <Kicker>Workshop</Kicker>
+              <Typography variant='h3' component='h3' sx={{ fontSize: '1.6rem', mb: 0.75 }}>
+                IDSS Kickoff Workshop
+              </Typography>
+              <Typography sx={{ color: colors.muted, fontSize: '1rem', maxWidth: '60ch' }}>
+                The virtual kickoff for NSF’s Integrated Data Systems &amp; Services
+                program. Browse the talks and slides from the funded projects.
+              </Typography>
+            </Box>
+            <Box
+              component='span'
+              className='card-arrow'
+              sx={{ color: colors.red, fontWeight: 600, fontSize: '1.6rem', transition: 'transform .2s ease' }}
+              aria-hidden='true'
+            >
+              →
+            </Box>
+          </Link>
+        </Container>
+      </Box>
+
       <Callout />
     </>
   );

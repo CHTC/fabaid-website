@@ -9,7 +9,6 @@ import {
   Kicker,
   colors,
   cardSx,
-  cardHoverSx,
   mono,
 } from '@/components/design';
 
@@ -37,6 +36,10 @@ interface Presentation {
   tags?: string[];
   /** External link to the slides (Google Slides / Drive / PDF URL). Omit until received. */
   slidesUrl?: string;
+  /** Optional project homepage. */
+  homepage?: string;
+  /** Optional NSF award ID (digits only), e.g. "2609465" — links to the award abstract. */
+  awardId?: string;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -49,11 +52,13 @@ const PRESENTATIONS: Presentation[] = [
     session: 'Category I',
     title: 'FabAID: A fabric for data-intensive and AI-driven science',
     presenter: 'Brian Bockelman',
-    org: 'Morgridge Institute for Research & CHTC',
+    org: 'Morgridge Institute for Research',
     abstract:
       'An introduction to the Fabric of AI-driven Data services and the goals of the IDSS kickoff.',
     tags: ['Category I', 'FabAID'],
     slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/FabAID.pdf',
+    homepage: 'https://www.fabaid.io/',
+    awardId: '2609485',
   },
   {
      session: 'Category I',
@@ -63,7 +68,8 @@ const PRESENTATIONS: Presentation[] = [
      abstract: 'A Federated National AI-Ready Data Ecosystem for Discovery, Innovation, Education, and Workforce Development',
      tags: ['Category I', 'National Data Platform'],
      slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/Altintas-NDP-IDSS-KickOff-21July2026.pdf',
-  },
+     homepage: 'https://www.nationaldataplatform.org/',
+    awardId: '2609447', },
   {
     session: 'Category II',
     title: 'National Science Data Fabric',
@@ -72,6 +78,8 @@ const PRESENTATIONS: Presentation[] = [
     abstract: 'Every Scientist Should Be Able to Collaborate with Every Scientific Facility and Every AI: A National Digital Backbone for Autonomous Scientific Discovery',
     tags: ['Category II', 'NSDF'],
     slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/NSDF.pdf',
+    homepage: 'https://nationalsciencedatafabric.org/',
+    awardId: '2609465',
   },
   {
     session: 'Category II',
@@ -81,6 +89,7 @@ const PRESENTATIONS: Presentation[] = [
     abstract: 'Building a shared, open-source platform in which scientific data from many fields are automatically described, organized, and connected.',
     tags: ['Category II', 'MESA'],
     slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/MESA.pdf',
+    awardId: '2608717',
   },
   {
     session: 'Category II',
@@ -90,7 +99,7 @@ const PRESENTATIONS: Presentation[] = [
     abstract: 'A National Center to Democratize Multi-Disciplinary Data Science and AI',
     tags: ['Category II', 'BRIDGE'],
     slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/BRIDGE.pdf',
-
+    awardId: '2609582',
   }
 ];
 
@@ -106,51 +115,39 @@ function groupBySession(items: Presentation[]): [string, Presentation[]][] {
   return [...groups.entries()];
 }
 
-function SlidesState({ slidesUrl }: { slidesUrl?: string }) {
-  if (slidesUrl) {
-    return (
-      <Box
-        component='span'
-        sx={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.4em',
-          fontWeight: 600,
-          color: colors.red,
-          '.pres-card:hover &': { textDecoration: 'underline' },
-        }}
-      >
-        <Slideshow sx={{ fontSize: 18 }} aria-hidden='true' />
-        View slides
-        <Launch sx={{ fontSize: 15 }} aria-hidden='true' />
-      </Box>
-    );
-  }
+const NSF_AWARD_BASE = 'https://www.nsf.gov/awardsearch/show-award/?AWD_ID=';
+
+/** Secondary link (project site, NSF award) shown in a card footer. */
+function ActionLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Box
-      component='span'
+    <Link
+      href={href}
+      target='_blank'
+      rel='noopener'
+      underline='none'
       sx={{
         display: 'inline-flex',
         alignItems: 'center',
-        gap: '0.5em',
+        gap: '0.35em',
         fontFamily: mono,
         fontSize: '0.72rem',
-        letterSpacing: '0.03em',
-        color: colors.muted2,
-        border: `1px dashed ${colors.lineStrong}`,
-        borderRadius: '6px',
-        px: 0.9,
-        py: 0.35,
+        color: colors.muted,
+        transition: 'color .15s',
+        '&:hover': { color: colors.red },
       }}
     >
-      Slides to come
-    </Box>
+      {children}
+      <Launch sx={{ fontSize: 13 }} aria-hidden='true' />
+    </Link>
   );
 }
 
 function PresentationCard({ p }: { p: Presentation }) {
-  const inner = (
-    <>
+  return (
+    <Paper
+      elevation={0}
+      sx={{ ...cardSx, display: 'flex', flexDirection: 'column', position: 'relative' }}
+    >
       <Typography component='b' variant='h6' sx={{ fontSize: '1.12rem', lineHeight: 1.28 }}>
         {p.title}
       </Typography>
@@ -185,37 +182,58 @@ function PresentationCard({ p }: { p: Presentation }) {
           ))}
         </Box>
       )}
-      <Box sx={{ mt: 'auto', pt: 2 }}>
-        <SlidesState slidesUrl={p.slidesUrl} />
-      </Box>
-    </>
-  );
-
-  const baseSx = {
-    ...cardSx,
-    display: 'flex',
-    flexDirection: 'column',
-    position: 'relative',
-  } as const;
-
-  if (p.slidesUrl) {
-    return (
-      <Link
-        href={p.slidesUrl}
-        target='_blank'
-        rel='noopener'
-        underline='none'
-        className='pres-card'
-        sx={{ ...baseSx, ...cardHoverSx, color: 'inherit' }}
+      <Box
+        sx={{
+          mt: 'auto',
+          pt: 2.25,
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          columnGap: 2,
+          rowGap: 1,
+        }}
       >
-        {inner}
-      </Link>
-    );
-  }
-
-  return (
-    <Paper elevation={0} sx={baseSx}>
-      {inner}
+        {p.slidesUrl ? (
+          <Link
+            href={p.slidesUrl}
+            target='_blank'
+            rel='noopener'
+            underline='none'
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.4em',
+              fontWeight: 600,
+              color: colors.red,
+              '&:hover': { textDecoration: 'underline' },
+            }}
+          >
+            <Slideshow sx={{ fontSize: 18 }} aria-hidden='true' />
+            View slides
+            <Launch sx={{ fontSize: 14 }} aria-hidden='true' />
+          </Link>
+        ) : (
+          <Box
+            component='span'
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              fontFamily: mono,
+              fontSize: '0.72rem',
+              letterSpacing: '0.03em',
+              color: colors.muted2,
+              border: `1px dashed ${colors.lineStrong}`,
+              borderRadius: '6px',
+              px: 0.9,
+              py: 0.35,
+            }}
+          >
+            Slides to come
+          </Box>
+        )}
+        {p.homepage && <ActionLink href={p.homepage}>Project site</ActionLink>}
+        {p.awardId && <ActionLink href={`${NSF_AWARD_BASE}${p.awardId}`}>NSF award</ActionLink>}
+      </Box>
     </Paper>
   );
 }
@@ -328,7 +346,7 @@ export default function Page() {
                 Send us your slides.
               </Typography>
               <Typography sx={{ color: colors.onInkLead, mt: 1, mb: 0, maxWidth: '48ch' }}>
-                Share a link (Google Slides, Drive, or a PDF) and we'll add your talk to the agenda.
+                Share a link (Google Slides, Drive, or a PDF) and we’ll add your talk to the agenda.
               </Typography>
             </Box>
             <Button
