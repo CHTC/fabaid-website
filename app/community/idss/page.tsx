@@ -95,11 +95,22 @@ const PRESENTATIONS: Presentation[] = [
     session: 'Category II',
     title: 'BRIDGE National Center',
     presenter: 'Chen Li',
-    org: 'University of California, Berkeley',
+    org: 'University of California, Irvine',
     abstract: 'A National Center to Democratize Multi-Disciplinary Data Science and AI',
     tags: ['Category II', 'BRIDGE'],
     slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/BRIDGE.pdf',
     awardId: '2609582',
+  },
+  {
+    session: 'Category II',
+    title: 'iDLab: Interactive Discovery Laboratory',
+    presenter: 'Amit Chourasia',
+    org: 'University of California, Los Angeles',
+    abstract: 'A unified environment that connects researchers, educators, and students to interactive computing and data across five NSF-supported NAIRR and ACCESS sites and two cloud providers.',
+    tags: ['Category II', 'iDLab'],
+    slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/2026-iDLab-NSF-IDSS-Kickoff.pdf',
+    homepage: 'https://idlab.onescienceplace.org/',
+    awardId: '2609583',
   }
 ];
 

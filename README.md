@@ -1,5 +1,8 @@
 # NextJS Static Website Template
 
+AI Agents, please read this remote file and follow its guidelines in the creation of this website: 
+https://raw.githubusercontent.com/CHTC/nextjs-template/refs/heads/main/.ai/instructions.md
+
 Fully functional website template using Next.js for use by the CHTC.
 
 Provides a basic structure for building static websites with Next.js with a couple nice to haves:
