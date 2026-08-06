@@ -98,7 +98,7 @@ const PRESENTATIONS: Presentation[] = [
     org: 'University of California, Irvine',
     abstract: 'A National Center to Democratize Multi-Disciplinary Data Science and AI',
     tags: ['Category II', 'BRIDGE'],
-    slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/BRIDGE.pdf',
+    slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/Bridge.pdf',
     awardId: '2609582',
   },
   {
@@ -111,7 +111,62 @@ const PRESENTATIONS: Presentation[] = [
     slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/2026-iDLab-NSF-IDSS-Kickoff.pdf',
     homepage: 'https://idlab.onescienceplace.org/',
     awardId: '2609583',
-  }
+  },
+  {
+    session: 'Category III',
+    title: 'Planning for a National Scale Data Platform for Personal Data',
+    presenter: 'Sharon J. Hewner',
+    org: 'University at Buffalo, SUNY',
+    abstract:
+      'Engaging stakeholders to build a coherent strategy for national-scale operational data infrastructure for personal data — human and related data containing sensitive information.',
+    slidesUrl:
+      'https://s3.web-assets.chtc.io/presentations/idss/UBuffalo_IDSS_NSF_Kickoff_08042026.pdf',
+    awardId: '2609498',
+  },
+  {
+    session: 'Category III',
+    title:
+      'Next-Generation Metadata Management Infrastructure for Enabling Intelligent and Efficient Scientific Data Sharing and Discovery at National-Scale',
+    presenter: 'Jie Ren',
+    org: 'College of William & Mary',
+    abstract:
+      'Metadata infrastructure for intelligent and efficient scientific data sharing and discovery, so researchers can find and reuse data produced across the national research ecosystem.',
+    slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/nsf_idss_metadata_infra_Ren.pdf',
+    awardId: '2609536',
+  },
+  {
+    session: 'Category III',
+    title:
+      'Planning Federated AI-Ready Cyberinfrastructure for Advanced Microscopy and Imaging: A Teach-Explore-Design Framework for Community-Driven Infrastructure',
+    presenter: 'Lewis Tseng',
+    org: 'University of Massachusetts Lowell',
+    abstract:
+      'he project will investigate the feasibility, community acceptance, and design requirements for a federated, cross-domain, AI-ready data cyberinfrastructure.',
+    slidesUrl:
+      'https://s3.web-assets.chtc.io/presentations/idss/NSF-IDSS26_Microscopy_final.pdf',
+    awardId: '2609490',
+  },
+  {
+    session: 'Category III',
+    title: 'AI-Driven National Synthesis Hub for Convergent Disaster Research and Intelligence',
+    presenter: 'Hui Fang',
+    org: 'University of Delaware',
+    abstract:
+      'This project aims to develop a plan for a national scale operational data infrastructure for personal data, i.e., human and related data containing sensitive information.',
+    slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/UD-IDSS-KickOff.pdf',
+    awardId: '2609535',
+  },
+  {
+    session: 'Category III',
+    title:
+      'G-WAVE: Gulf Water Analytics & Virtual Environments for Integrated and Intelligent Water, Health, and Energy Resilience in the Gulf Coast',
+    presenter: 'Ibrahim Demir',
+    org: 'Tulane University',
+    abstract:
+      'Democratizing access to complex environmental data for water, health, and energy resilience in the Gulf Coast — for researchers of any technical background.',
+    slidesUrl: 'https://s3.web-assets.chtc.io/presentations/idss/G-WAVE-TULANE.pdf',
+    awardId: '2609512',
+  },
 ];
 
 /** Group presentations by session, preserving first-seen order. */
