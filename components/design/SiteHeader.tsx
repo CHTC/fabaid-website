@@ -4,6 +4,7 @@ import { Box, Button, Container, IconButton, Link } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Construction from '@mui/icons-material/Construction';
+import Campaign from '@mui/icons-material/Campaign';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
@@ -76,6 +77,63 @@ export default function SiteHeader() {
               Operated by CHTC
             </Link>
             <Box sx={{ flex: 1 }} />
+            <Box
+              component='span'
+              sx={{
+                py: 0.75,
+                color: '#fff',
+                fontWeight: 700,
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 0.75,
+              }}
+            >
+              <Campaign sx={{ fontSize: 18, color: colors.red300 }} aria-hidden />
+              <Box
+                component='span'
+                sx={{
+                  '@keyframes bannerShimmer': {
+                    from: { backgroundPosition: '100% 0' },
+                    to: { backgroundPosition: '0% 0' },
+                  },
+                  // White text with a red glint that sweeps across twice on load.
+                  backgroundImage: `linear-gradient(110deg, #fff 42%, ${colors.red300} 50%, #fff 58%)`,
+                  backgroundSize: '300% 100%',
+                  backgroundPosition: '0% 0',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  animation: 'bannerShimmer 2.4s ease-in-out 0.6s 1',
+                  '@media (prefers-reduced-motion: reduce)': { animation: 'none' },
+                }}
+              >
+                <b>NSF AI Infrastructure Hubs teams</b>, the PATh team is ready to help
+              </Box>
+            </Box>
+            <Button
+              href='https://path-cc.io/ai-hubs.html'
+              target='_blank'
+              rel='noopener'
+              variant='contained'
+              size='small'
+              sx={{
+                borderRadius: '999px',
+                fontFamily: mono,
+                fontSize: '0.72rem',
+                fontWeight: 700,
+                lineHeight: 1.4,
+                px: 1.5,
+                py: 0.25,
+                my: 0.5,
+                whiteSpace: 'nowrap',
+                bgcolor: '#fff',
+                // Double-& outweighs the utility bar's `& a` color rule.
+                '&&': { color: '#000' },
+                '&&:hover': { bgcolor: colors.paper2, color: '#000' },
+              }}
+            >
+              Learn more&nbsp;→
+            </Button>
           </Box>
         </Container>
       </Box>
