@@ -107,7 +107,7 @@ export default function SiteHeader() {
                   '@media (prefers-reduced-motion: reduce)': { animation: 'none' },
                 }}
               >
-                <b>NSF AI Infrastructure Hubs teams</b>, the PATh team is ready to help
+                <b>NSF AI Infrastructure Hub teams</b>, the PATh team is ready to help
               </Box>
             </Box>
             <Button
