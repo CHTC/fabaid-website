@@ -21,6 +21,7 @@ const COLUMNS: Col[] = [
       { label: 'Software', href: '/software/' },
       { label: 'Facilitation', href: '/facilitation/' },
       { label: 'Community', href: '/community/' },
+      { label: 'News', href: '/news/' },
     ],
   },
   {

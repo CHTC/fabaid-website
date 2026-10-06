@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@chtc/web-components':
-        specifier: ^1.0.23
-        version: 1.0.23(@types/react@19.2.17)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^2.0.2
+        version: 2.0.2(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react@19.1.0))(@mui/icons-material@7.3.11(@mui/material@7.3.11(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@types/react@19.2.17)(react@19.1.0))(@mui/material@7.3.11(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-markdown@10.1.0(@types/react@19.2.17)(react@19.1.0))(react@19.1.0)(rehype-raw@7.0.0)
       '@emotion/cache':
         specifier: ^11.14.0
         version: 11.14.0
@@ -150,11 +150,36 @@ packages:
     resolution: {integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==}
     engines: {node: '>=6.9.0'}
 
-  '@chtc/web-components@1.0.23':
-    resolution: {integrity: sha512-K4ZzINBKz7jH4OTuFG7As43vJCkD/aXiQqaS1CyDYoqkGqOLqcOuQRJzOHgH/Ucn+4l1VSwHcVO1ZMtHwdf4Og==}
+  '@chtc/web-components@2.0.2':
+    resolution: {integrity: sha512-+LplP5b7JCDl3gAm0fGbj4SGZvLJGGMqHhEjFEMq+/FwNqeRtLzGzJ3H+ItGGZ1uYqw2IBIcF0Ji3/beiRKcwA==}
     peerDependencies:
+      '@emotion/react': ^11.0.0
+      '@emotion/styled': ^11.0.0
+      '@mui/icons-material': ^7.0.0
+      '@mui/material': ^7.0.0
+      chart.js: ^4.4.0
+      chartjs-adapter-luxon: ^1.3.0
+      luxon: ^3.0.0
       react: ^18.0.0 || ^19.0.0
+      react-chartjs-2: ^5.0.0
       react-dom: ^18.0.0 || ^19.0.0
+      react-markdown: ^9.0.0
+      rehype-raw: ^7.0.0
+    peerDependenciesMeta:
+      '@mui/icons-material':
+        optional: true
+      chart.js:
+        optional: true
+      chartjs-adapter-luxon:
+        optional: true
+      luxon:
+        optional: true
+      react-chartjs-2:
+        optional: true
+      react-markdown:
+        optional: true
+      rehype-raw:
+        optional: true
 
   '@corex/deepmerge@4.0.43':
     resolution: {integrity: sha512-N8uEMrMPL0cu/bdboEWpQYb/0i2K5Qn8eCsxzOmxSggJbbQte7ljMRoXm917AbntqTGOzdTu+vP3KOOzoC70HQ==}
@@ -608,9 +633,6 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
-
-  '@kurkle/color@0.3.4':
-    resolution: {integrity: sha512-M5UknZPHRu3DEDWoipU6sE8PdkZ6Z/S+v4dD+Ke8IaNlpdSQah50lz1KtcFBa2vsdOnwbbnxJwVM4wty6udA5w==}
 
   '@mapbox/jsonlint-lines-primitives@2.0.2':
     resolution: {integrity: sha512-rY0o9A5ECsTQRVhv7tL/OyDpGAoUB4tTvLiW1DSzQGq4bvTPhNw1VpSNjDJc5GFZ2XuyOtSWSVN05qOtcD71qQ==}
@@ -1306,16 +1328,6 @@ packages:
   character-reference-invalid@2.0.1:
     resolution: {integrity: sha512-iBZ4F4wRbyORVsu0jPV7gXkOsGYjGHPmAyv+HiHG8gi5PtC9KI2j1+v8/tlibRvjoWX027ypmG/n0HtO5t7unw==}
 
-  chart.js@4.5.1:
-    resolution: {integrity: sha512-GIjfiT9dbmHRiYi6Nl2yFCq7kkwdkp1W/lp2J99rX0yo9tgJGn3lKQATztIjb5tVtevcBtIdICNWqlq5+E8/Pw==}
-    engines: {pnpm: '>=8'}
-
-  chartjs-adapter-luxon@1.3.1:
-    resolution: {integrity: sha512-yxHov3X8y+reIibl1o+j18xzrcdddCLqsXhriV2+aQ4hCR66IYFchlRXUvrJVoxglJ380pgytU7YWtoqdIgqhg==}
-    peerDependencies:
-      chart.js: '>=3.0.0'
-      luxon: '>=1.0.0'
-
   cheap-ruler@4.1.0:
     resolution: {integrity: sha512-pmcgaGHAxfYtKr4BtSaM/+/3vvQJJLkvQibEdO2eb5eiHrRgEAd43M2tpBGi4eIX32kXyvPLQVT23qNnuFaa8w==}
 
@@ -1588,6 +1600,7 @@ packages:
   eslint@9.39.4:
     resolution: {integrity: sha512-XoMjdBOwe/esVgEvLmNsD3IRHkm7fbKIUGvrleloJXUZgDHig2IPWNniv+GwjyJXzuNqVjlr5+4yVUZjycJwfQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -2073,10 +2086,6 @@ packages:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
 
-  luxon@3.7.2:
-    resolution: {integrity: sha512-vtEhXh/gNjI9Yg1u4jX/0YVPMvxzHuGgCm6tC5kZyb08yjGWGnqAjGJvcXbqQR2P3MyMEFnRbpcdFS6PBcLqew==}
-    engines: {node: '>=12'}
-
   mapbox-gl@3.24.0:
     resolution: {integrity: sha512-R+FdFUB3DnoE5FYASV7lGSiRyMkSblcZ2UEy7b2pt7s5ZbCxFIUPXd0E6iAFd8OdvdA2VtbvZZVylzAZNaurjA==}
 
@@ -2430,12 +2439,6 @@ packages:
   quickselect@3.0.0:
     resolution: {integrity: sha512-XdjUArbK4Bm5fLLvlm5KpTFOiOThgfWWI4axAZDWg4E/0mKdZyI9tNEfds27qCi1ze/vwTR16kvmmGhRra3c2g==}
 
-  react-chartjs-2@5.3.1:
-    resolution: {integrity: sha512-h5IPXKg9EXpjoBzUfyWJvllMjG2mQ4EiuHQFhms/AjUm0XSZHhyRy2xVmLXHKrtcdrPO4mnGqRtYoD0vp95A0A==}
-    peerDependencies:
-      chart.js: ^4.1.1
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-
   react-dom@19.1.0:
     resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
     peerDependencies:
@@ -2462,12 +2465,6 @@ packages:
 
   react-markdown@10.1.0:
     resolution: {integrity: sha512-qKxVopLT/TyA6BX3Ue5NwabOsAzm0Q7kAPwq6L+wWDwisYs7R8vZ0nRXqq6rkueboxpkjvLGU9fWifiX/ZZFxQ==}
-    peerDependencies:
-      '@types/react': '>=18'
-      react: '>=18'
-
-  react-markdown@9.1.0:
-    resolution: {integrity: sha512-xaijuJB0kzGiUdG7nc2MOMDUDBWPyGAjZtUrow9XxUeua8IqeP+VlIfAZ3bphpcLTnSZXz6z9jcVC/TCwbfgdw==}
     peerDependencies:
       '@types/react': '>=18'
       react: '>=18'
@@ -2963,27 +2960,20 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@chtc/web-components@1.0.23(@types/react@19.2.17)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@chtc/web-components@2.0.2(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react@19.1.0))(@mui/icons-material@7.3.11(@mui/material@7.3.11(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@types/react@19.2.17)(react@19.1.0))(@mui/material@7.3.11(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-markdown@10.1.0(@types/react@19.2.17)(react@19.1.0))(react@19.1.0)(rehype-raw@7.0.0)':
     dependencies:
       '@emotion/react': 11.14.0(@types/react@19.2.17)(react@19.1.0)
       '@emotion/styled': 11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react@19.1.0)
-      '@mui/icons-material': 7.3.11(@mui/material@7.3.11(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@types/react@19.2.17)(react@19.1.0)
       '@mui/material': 7.3.11(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      chart.js: 4.5.1
-      chartjs-adapter-luxon: 1.3.1(chart.js@4.5.1)(luxon@3.7.2)
       colorjs.io: 0.5.2
       gray-matter: 4.0.3
-      luxon: 3.7.2
       react: 19.1.0
-      react-chartjs-2: 5.3.1(chart.js@4.5.1)(react@19.1.0)
       react-dom: 19.1.0(react@19.1.0)
-      react-markdown: 9.1.0(@types/react@19.2.17)(react@19.1.0)
       react-wrap-balancer: 1.1.1(react@19.1.0)
+    optionalDependencies:
+      '@mui/icons-material': 7.3.11(@mui/material@7.3.11(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react@19.1.0))(@types/react@19.2.17)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@types/react@19.2.17)(react@19.1.0)
+      react-markdown: 10.1.0(@types/react@19.2.17)(react@19.1.0)
       rehype-raw: 7.0.0
-    transitivePeerDependencies:
-      - '@mui/material-pigment-css'
-      - '@types/react'
-      - supports-color
 
   '@corex/deepmerge@4.0.43': {}
 
@@ -3342,8 +3332,6 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
-
-  '@kurkle/color@0.3.4': {}
 
   '@mapbox/jsonlint-lines-primitives@2.0.2': {}
 
@@ -3992,15 +3980,6 @@ snapshots:
   character-entities@2.0.2: {}
 
   character-reference-invalid@2.0.1: {}
-
-  chart.js@4.5.1:
-    dependencies:
-      '@kurkle/color': 0.3.4
-
-  chartjs-adapter-luxon@1.3.1(chart.js@4.5.1)(luxon@3.7.2):
-    dependencies:
-      chart.js: 4.5.1
-      luxon: 3.7.2
 
   cheap-ruler@4.1.0: {}
 
@@ -4951,8 +4930,6 @@ snapshots:
     dependencies:
       js-tokens: 4.0.0
 
-  luxon@3.7.2: {}
-
   mapbox-gl@3.24.0:
     dependencies:
       '@mapbox/mapbox-gl-supported': 3.0.0
@@ -5545,11 +5522,6 @@ snapshots:
 
   quickselect@3.0.0: {}
 
-  react-chartjs-2@5.3.1(chart.js@4.5.1)(react@19.1.0):
-    dependencies:
-      chart.js: 4.5.1
-      react: 19.1.0
-
   react-dom@19.1.0(react@19.1.0):
     dependencies:
       react: 19.1.0
@@ -5569,24 +5541,6 @@ snapshots:
       mapbox-gl: 3.24.0
 
   react-markdown@10.1.0(@types/react@19.2.17)(react@19.1.0):
-    dependencies:
-      '@types/hast': 3.0.4
-      '@types/mdast': 4.0.4
-      '@types/react': 19.2.17
-      devlop: 1.1.0
-      hast-util-to-jsx-runtime: 2.3.6
-      html-url-attributes: 3.0.1
-      mdast-util-to-hast: 13.2.1
-      react: 19.1.0
-      remark-parse: 11.0.0
-      remark-rehype: 11.1.2
-      unified: 11.0.5
-      unist-util-visit: 5.1.0
-      vfile: 6.0.3
-    transitivePeerDependencies:
-      - supports-color
-
-  react-markdown@9.1.0(@types/react@19.2.17)(react@19.1.0):
     dependencies:
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.4

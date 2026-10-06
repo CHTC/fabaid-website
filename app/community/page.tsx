@@ -9,11 +9,14 @@ import {
   HeroStats,
   Kicker,
   Callout,
+  LinkArrow,
   cardSx,
   cardHoverSx,
   colors,
   mono,
 } from '@/components/design';
+import { NewsGrid } from '@/components/news';
+import { getNews } from '@/utils/news';
 
 export const metadata: Metadata = {
   title: 'Community | FabAID',
@@ -131,7 +134,9 @@ function ProjectCard({ domain, name, org, body, href }: Project) {
   );
 }
 
-export default function Page() {
+export default async function Page() {
+  const news = await getNews();
+
   return (
     <>
       <PageHero
@@ -206,6 +211,21 @@ export default function Page() {
                 →
               </Box>
             </Link>
+          </Box>
+        </Container>
+      </Box>
+
+      {/* Latest news */}
+      <Box component='section' sx={{ bgcolor: colors.paper2, py: { xs: 7, md: 13 } }}>
+        <Container maxWidth='lg'>
+          <SectionHead
+            kicker='News'
+            title='The latest from the fabric.'
+            lead='Announcements, milestones, and stories from FabAID and the projects it serves.'
+          />
+          <NewsGrid articles={news.slice(0, 3)} />
+          <Box sx={{ mt: 4 }}>
+            <LinkArrow href='/news/'>All news</LinkArrow>
           </Box>
         </Container>
       </Box>
