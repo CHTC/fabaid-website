@@ -1,6 +1,6 @@
 import LeaderCard from "@/app/team/_components/LeaderCard/LeaderCard";
 import getFabricTexture from "@/utils/getFabricTexture";
-import { Staff } from '@/utils/staff';
+import type { Staff } from '@/utils/staff';
 import ExportedImage from 'next-image-export-optimizer';
 import { Box, Typography, Paper } from '@mui/material';
 

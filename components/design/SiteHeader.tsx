@@ -308,12 +308,13 @@ export default function SiteHeader() {
                   '@media (prefers-reduced-motion: reduce)': { animation: 'none' },
                 }}
               >
-                <b>Francis Halzen awarded the 2026 Nobel Prize</b>, marking the 4th received by
-                HTCondor users!
+                <b>NSF AI Infrastructure Hub teams</b>, the PATh team is ready to help
               </Box>
             </Box>
             <Button
-              href='/news/2026/10/06/francis-halzen-nobel-prize/'
+              href='https://path-cc.io/ai-hubs.html'
+              target='_blank'
+              rel='noopener'
               variant='contained'
               size='small'
               sx={{
@@ -332,7 +333,7 @@ export default function SiteHeader() {
                 '&&:hover': { bgcolor: colors.paper2, color: '#000' },
               }}
             >
-              Read more&nbsp;→
+              Learn more&nbsp;→
             </Button>
           </Box>
         </Container>

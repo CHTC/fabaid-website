@@ -11,8 +11,10 @@ const nextConfig = {
 	// Image Optimizer https://www.npmjs.com/package/next-image-export-optimizer?activeTab=readme
 	images: {
 		loader: "custom",
-		imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-		deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+		// Every entry here is one generated file per source image, so keep the
+		// list to the widths the layouts actually ask for.
+		imageSizes: [96, 384],
+		deviceSizes: [640, 1200],
 	},
 	transpilePackages: ["next-image-export-optimizer"],
 	env: {
@@ -22,7 +24,8 @@ const nextConfig = {
 		nextImageExportOptimizer_storePicturesInWEBP: "true",
 		nextImageExportOptimizer_exportFolderName: "nextImageExportOptimizer",
 		nextImageExportOptimizer_generateAndUseBlurImages: "true",
-		nextImageExportOptimizer_remoteImageCacheTTL: "0",
+		// Ten days: CI should not re-download ~30 headshots on every run.
+		nextImageExportOptimizer_remoteImageCacheTTL: "864000",
 	},
 };
 

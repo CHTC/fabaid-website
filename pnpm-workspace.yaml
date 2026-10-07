@@ -10,5 +10,6 @@ minimumReleaseAgeExclude:
   - '@pelicanplatform/hooks@1.3.0'
   - '@pelicanplatform/components@1.5.0'
   - '@pelicanplatform/hooks@1.4.0'
-  - '@chtc/web-components@2.0.1'
-  - '@chtc/web-components@2.0.2'
+  # Unversioned so a fresh publish installs immediately rather than waiting out
+  # the release-age gate.
+  - '@chtc/web-components'

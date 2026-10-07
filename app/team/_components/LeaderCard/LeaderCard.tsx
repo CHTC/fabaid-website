@@ -1,7 +1,7 @@
 import ExportedImage from 'next-image-export-optimizer';
 import { Box, Typography, Paper } from '@mui/material';
 import React from 'react';
-import { Staff } from '@/utils/staff';
+import type { Staff } from '@/utils/staff';
 import getFabricTexture from "@/utils/getFabricTexture";
 
 type LeaderCardProps = Staff & {
@@ -59,6 +59,9 @@ export function LeaderCard({
                 src={image}
                 alt={name}
                 fill={true}
+                // The card caps the portrait at 300px (xs) / 220px (sm+); without
+                // this a fill image requests the largest generated width.
+                sizes='(max-width: 600px) 300px, 220px'
                 style={{
                   borderRadius: '1rem',
                   objectFit: 'cover',

@@ -14,7 +14,9 @@ import {
   colors,
   mono,
 } from '@/components/design';
-import { getStaff, byWeightThenName } from '@/utils/staff';
+import { getStaff } from '@chtc/web-components';
+import { byWeightThenName, type Staff } from '@/utils/staff';
+import { recordStaffImages } from '@/utils/staffImages';
 
 export const metadata: Metadata = {
   title: 'Facilitation | FabAID',
@@ -40,7 +42,7 @@ const PHASES = [
 ];
 
 export default async function Page() {
-  const team = await getStaff('fabaid');
+  const team = (await getStaff('fabaid')) as Staff[];
   const facilitators = team
     .filter(
       (member) =>
@@ -49,6 +51,7 @@ export default async function Page() {
         member.status !== 'Past'
     )
     .sort(byWeightThenName);
+  recordStaffImages(facilitators);
 
   return (
     <>

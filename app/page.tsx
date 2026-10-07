@@ -1,3 +1,4 @@
+import NobelBanner from './_components/NobelBanner';
 import HomeHero from './_components/HomeHero';
 import { ServicesGrid, FacilitationSchool } from './_components/HomeSections';
 import { Callout } from '@/components/design';
@@ -6,6 +7,7 @@ import LogoCarousel from './_components/LogoCarousel';
 export default function Home() {
   return (
     <>
+      <NobelBanner />
       <HomeHero />
       <LogoCarousel />
       {/* Metrics band hidden for now.
