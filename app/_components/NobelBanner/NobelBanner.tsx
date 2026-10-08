@@ -6,7 +6,7 @@ import { Box, Button, Container, Typography } from '@mui/material';
 import { colors } from '@/components/design';
 
 /** Where the "Read more" button sends visitors. */
-const READ_MORE_HREF = '/news/2026/10/06/francis-halzen-nobel-prize/';
+const READ_MORE_HREF = 'https://chtc.cs.wisc.edu/behind-nobel-winning-icecube-discoveries.html';
 
 const BANNER_MIN_HEIGHT = 60;
 
