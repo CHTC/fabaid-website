@@ -15,7 +15,7 @@ export type DataRepository = {
   fieldOfScience: string;
   numberOfDatasets: number;
   rank: number;
-  inprogress: boolean;
+  inProgress: boolean;
   display: boolean;
   name: string;
   namespace: string[];
@@ -24,5 +24,12 @@ export type DataRepository = {
   organizationUrl: string | null;
   repositoryUrl: RepositoryUrl | null;
   publicObject: string | null;
+  /**
+   * True when `publicObject` names a directory rather than a single object, so
+   * a client download needs to recurse (`pelican object get -r`). Named with
+   * the YAML's own snake_case key, since the generator copies fields through
+   * verbatim.
+   */
+  is_directory?: boolean;
 };
 

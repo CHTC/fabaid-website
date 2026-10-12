@@ -117,7 +117,7 @@ async function PageDev({ params }: PageProps) {
               repository.dataVisibility === 'public' ? 'filled' : 'outlined'
             }
           />
-          {repository.inprogress && (
+          {repository.inProgress && (
             <Chip label='In Progress' color='warning' variant='outlined' />
           )}
           <Chip label={repository.fieldOfScience} variant='outlined' />
