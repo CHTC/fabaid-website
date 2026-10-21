@@ -18,7 +18,7 @@ namespace:
   - "/ndp/burnpro3d-auth"
 thirtyDayReads: 0
 oneYearReads: 9213605566
-organizationUrl: https://wifire.ucsd.edu/burnpro3d
+organizationUrl: https://burnpro3d.sdsc.edu/
 repositoryUrl:
   url:  https://wifire-data.sdsc.edu/dataset
   label: Dataset Catalog

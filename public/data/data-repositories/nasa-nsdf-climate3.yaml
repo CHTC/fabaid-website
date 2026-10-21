@@ -1,5 +1,5 @@
 description: |
-  The [NASA C1440-LLC2160 dataset](https://data.nas.nasa.gov/geoseccoviz/geoseccovizdata/c1440_llc2160/GEOS/)
+  The [NASA C1440-LLC2160 dataset](https://data.nas.nasa.gov/geoseccoviz/c1440_llc2160/GEOS/)
   is [the simulation output from research into coupling two models](https://www.nas.nasa.gov/SC21/research/project16.html):
   a global atmospheric model and a global ocean model that were originally
   designed to be run separately. The atmospheric model is a C1440

@@ -1,6 +1,6 @@
 description: |
   Curated datasets used by members of the [LIGO Scientific Collaboration](www.ligo.org), the
-  [Virgo Collaboration](https://www.virgo-gw.eu/), and the [KAGRA Collaboration](https://gwcenter.icrr.u-tokyo.ac.jp/en/organization)
+  [Virgo Collaboration](https://www.virgo-gw.eu/), and the [KAGRA Collaboration](https://gwcenter.icrr.u-tokyo.ac.jp/en/)
   in the combined analysis of data collected from their detectors. These data consist of gravitational-wave
   data collected at any of the four interferometers but with simulated signals, as well as some other datasets,
   used for data analysis purposes in detecting black hole collisions and other cosmic phenomena as
